@@ -18,6 +18,7 @@ var SelectionController = fun.newClass(Base, {
   },
 
   _onSelectionDragStart: function(e) {
+    this._view.selection().clear();
     this._selectorDiv = dom.createElement('div', {
       style: 'position:absolute; opacity: 0.3; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=30)" ;filter:alpha(opacity=30);'
       });
@@ -42,7 +43,6 @@ var SelectionController = fun.newClass(Base, {
       var width = -1.0 * e.dragOffset.x;
       var left = this._selectorDivStart.x - width;
     }
-
     if (e.dragOffset.y >= 0) {
       var height = e.dragOffset.y;
       var top = this._selectorDivStart.y;
@@ -89,12 +89,10 @@ var SelectionController = fun.newClass(Base, {
     for (var i = 0; i < to_add.length; i++) {
       index = to_add[i];
       this._currentlySelected[index] = 1;
-      // this._selectionController.setSelection(index, true);
       this._view.selection().addRange(index, index);
     }
     for (var i = 0; i < to_delete.length; i++) {
       index = to_delete[i];
-      // this._selectionController.setSelection(index, false);
       delete this._currentlySelected[index];
       this._view.selection().removeRange(index, index);
     }
@@ -108,10 +106,11 @@ var SelectionController = fun.newClass(Base, {
     this._selectorDiv.style.height = rect.height + 'px';
     this._selectIndexesUnderRect(rect);
   },
+  
   _onSelectionDragEnd: function(e) {
     this._view._dom.removeChild(this._selectorDiv);
     delete this._selectorDiv;
-  } 
+  }
 });
 
 exports.SelectionController = SelectionController;

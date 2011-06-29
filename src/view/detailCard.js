@@ -11,19 +11,13 @@ var DetailCard = fun.newClass(Container, {
 
     this._name = dom.createElement('div', 
       { className: 'card__name', html: 'Name' });
-      
-    this._network = dom.createElement('div', 
-      { className: 'card__network', html: '' });
-
-    // this._profileLink = dom.createElement('div', 
-    //   { className: 'card__profile', html: '' });
 
     this._pic = dom.createElement('img', 
       { className: 'card__pic' });
 
     this._top = dom.createElement('div', 
       { className: 'card__top'},
-      [this._name, this._network, this._pic]);
+      [this._name, this._pic]);
     
     this._bottom = dom.createElement('div', 
       { className: 'card__bottom', html: 'Loading...'});
@@ -37,13 +31,12 @@ var DetailCard = fun.newClass(Container, {
     this._name.innerHTML = item.name();
     this._pic.src = item.picture();
     this._bottom.innerHTML = '';
-    this._network.innerHTML = '';
     
     item.fetchExtraData(fun.bind(function(result) {
-      this._bottom.innerHTML = result.username || '';
-      this._network.innerHTML = result.work 
-        ? (result.work[0] ? result.work[0].employer.name : '') : '';
-      //this._profileLink.innerHTML = '<a href=' + result.link + '>Profile</a>';
+      this._bottom.innerHTML = result.work
+        ? (result.work[0] ? result.work[0].employer.name : result.first_name) : result.first_name;
+
+      this._name.innerHTML = '<a class="card_link" href=' + result.link + '>' + item.name() + '</a>'; 
     }, this));
     
     var new_pos = 't:' + pos.t + 'px l:' + pos.l + 'px';  
@@ -61,7 +54,6 @@ var DetailCard = fun.newClass(Container, {
     this._name.innerHTML = '';
     this._pic.src = '';
     this._bottom.innerHTML = '';
-    this._network.innerHTML = '';
   }
 });
 

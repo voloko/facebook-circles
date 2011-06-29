@@ -28,15 +28,16 @@
 
 .card__top {
   background: white;
-  width: 98px;
-  height: 98px;
+  width: 78px;
+  height: 78px;
 }
 
 .card__bottom {
   background: gray;
-  height: 20px;
+  height: 15px;
   width: 200px;
   font-size: 12px;
+  font-weight: bold;
   color: white;
   padding-left: 5px;
 }
@@ -45,30 +46,23 @@
   top: 10px;
   left: 70px;
   position: absolute;
-  width: 98px;
+  width: 78px;
   text-align: center;
   font-size: 13px;
   font-weight: bold;
+}
+
+.card_link {
+  color: #3B5998;
 }
 
 .card__name {
-  top: 15px;
+  top: 20px;
   left: 70px;
   position: absolute;
-  width: 98px;
+  width: 100px;
   text-align: center;
   font-size: 13px;
-  font-weight: bold;
-}
-
-.card__network {
-  top: 45px;
-  left: 70px;
-  position: absolute;
-  width: 98px;
-  text-align: center;
-  font-size: 12px;
-  opacity: 0.8;
   font-weight: bold;
 }
 
