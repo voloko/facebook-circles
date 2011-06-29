@@ -5,6 +5,7 @@ var Img = require('../../lib/uki-view/view/image').Image;
 var view = require('../../lib/uki-core/view');
 var fun = require('../../lib/uki-core/function');
 var dom = require('../../lib/uki-core/dom');
+var evt = require('../../lib/uki-core/event');
 
 var FRIENDS_PER_CIRCLE = 12;
 
@@ -37,7 +38,7 @@ var Circle = view.newClass('Circle', Container, {
       { className: 'circle__inner' },
       [this._name, this._number]);
     this._dom = dom.createElement('div',
-      { className: 'circle' },
+      { className: 'circle circle_empty' },
       [this._disk, this._inner]);
   },
 
@@ -85,6 +86,8 @@ var Circle = view.newClass('Circle', Container, {
       if (diff && !this._modelChanged) {
         this._firePopup(diff);
       }
+      this.toggleClass('circle_empty', !v);
+      this.toggleClass('circle_full', !!v);
       this._modelChanged = false;
       this._number.innerHTML = dom.escapeHTML(v);
       this.childViews([]);
@@ -119,6 +122,38 @@ var Circle = view.newClass('Circle', Container, {
   },
 
   dragover: view.newToggleClassProp('circle_dragover'),
+
+  tmp: function(state) {
+    var className = 'circle_tmp';
+    if (state === undefined) { return this.hasClass(className); }
+    if (state) {
+
+      var link;
+
+      this.dom().appendChild(dom.createElement('div',
+        { className: 'circle__text', html: 'Drag here to create new list' }));
+      this.dom().appendChild(link = dom.createElement('div',
+        { className: 'circle__create ',
+          html: '<a class="circle__create__a">Create list</a>' }));
+
+      evt.on(link, 'click', fun.bind(function() {
+        var name = prompt('Please give your circle a name');
+        if (name) {
+          var model = this.model();
+          model.name(name);
+          model.save();
+          var data = this.parent().data();
+          data.unshift(model);
+          this.parent().data(data);
+        }
+      }, this));
+
+      var Model = require('../model/circle').Circle;
+      this.model(new Model({}));
+    }
+    this.toggleClass(className, state)
+    return this;
+  },
 
   d: function() {
     return this.over() ? 175 : 125;
