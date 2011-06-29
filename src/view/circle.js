@@ -60,6 +60,9 @@ var Circle = view.newClass('Circle', Container, {
   count: function(v) {
     if (arguments.length) {
       this._number.innerHTML = dom.escapeHTML(v);
+      this.childViews([]);
+      this._initted = false;
+      if (this.over()) this._initMembers();
       return this;
     }
     return this._number.innerHTML;
@@ -78,8 +81,9 @@ var Circle = view.newClass('Circle', Container, {
   },
 
   _initMembers: function() {
+    if (this._initted) return;
     if (this.model() && this.model().membersLoaded()) {
-      this._initMembers = fun.FS;
+      this._initted = true;
       var members = this.model().members().slice(0, FRIENDS_PER_CIRCLE);
       this.childViews(members.map(function(m, i) {
         return { view: CircleFriend, src: m.picture(), index: i };
