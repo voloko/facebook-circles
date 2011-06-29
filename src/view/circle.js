@@ -43,6 +43,7 @@ var Circle = view.newClass('Circle', Container, {
 
   model: fun.newProp('model', function(model) {
     this._model = model;
+    this._modelChanged = true;
     this.bindings([
       { model: model, viewProp: 'name', modelProp: 'name' },
       { model: model, viewProp: 'count', modelProp: 'count' }
@@ -57,9 +58,38 @@ var Circle = view.newClass('Circle', Container, {
     return this._name.innerHTML;
   },
 
+  _firePopup: function(diff) {
+    var rect = this.clientRect(true);
+    var popup = dom.createElement('div',
+      { className: 'circle__popup',
+        html: diff > 0 ? '+' + diff : diff,
+        style: 'left: ' + rect.left + 'px; top: ' + rect.top + 'px'
+       });
+    document.body.appendChild(popup);
+
+    setTimeout(function() {
+      dom.addClass(popup, 'circle__popup_phase1');
+      setTimeout(function() {
+        dom.addClass(popup, 'circle__popup_phase2');
+        setTimeout(function() {
+          document.body.removeChild(popup);
+        }, 1000);
+      }, 1000);
+    }, 1);
+  },
+
   count: function(v) {
     if (arguments.length) {
+      var oldCount = this.count();
+      var diff = v - this.count();
+      if (diff && !this._modelChanged) {
+        this._firePopup(diff);
+      }
+      this._modelChanged = false;
       this._number.innerHTML = dom.escapeHTML(v);
+      this.childViews([]);
+      this._initted = false;
+      if (this.over()) this._initMembers();
       return this;
     }
     return this._number.innerHTML;
@@ -78,8 +108,9 @@ var Circle = view.newClass('Circle', Container, {
   },
 
   _initMembers: function() {
+    if (this._initted) return;
     if (this.model() && this.model().membersLoaded()) {
-      this._initMembers = fun.FS;
+      this._initted = true;
       var members = this.model().members().slice(0, FRIENDS_PER_CIRCLE);
       this.childViews(members.map(function(m, i) {
         return { view: CircleFriend, src: m.picture(), index: i };

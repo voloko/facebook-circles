@@ -2,6 +2,7 @@ requireCss('./circleList/circleList.css');
 
 var Base = require('../../lib/uki-view/view/list').List;
 var view = require('../../lib/uki-core/view');
+var utils = require('../../lib/uki-core/utils');
 var fun = require('../../lib/uki-core/function');
 var Circle = require('./circle').Circle;
 
@@ -46,16 +47,16 @@ var CircleList = view.newClass('CircleList', Base, {
   },
 
   onmouseover: function(e) {
-    var number = this._itemUnderCursor(e);
+    var index = this._itemUnderCursor(e);
 
-    if (this._oldNumber !== number) {
-      if (this._oldNumber !== undefined) {
-        this.childViews()[this._oldNumber].over(false);
+    if (this._overIndex !== index) {
+      if (this._overIndex !== undefined) {
+        this.childViews()[this._overIndex].over(false);
       }
-      if (number !== undefined) {
-        this.childViews()[number].over(true);
+      if (index !== undefined) {
+        this.childViews()[index].over(true);
       }
-      this._oldNumber = number;
+      this._overIndex = index;
     }
   },
 
@@ -64,8 +65,9 @@ var CircleList = view.newClass('CircleList', Base, {
   },
 
   ondrop: function(e) {
-    if (this._oldNumber !== undefined) {
-      this.childViews()[this._oldNumber].over(false);
+    if (this._overIndex !== undefined) {
+      var ids = utils.pluck(e.data, 'id');
+      this.childViews()[this._overIndex].model().addMemberIds(ids);
     }
   }
 });

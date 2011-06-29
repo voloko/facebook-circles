@@ -55,7 +55,8 @@ var FriendList = view.newClass('FriendList', Base, {
       this.trigger(evt.createEvent(e, { type: 'selectiondragend' }));
     }
     if (this._dragging) {
-      this.trigger(evt.createEvent(e, utils.extend({ type: 'itemdragend' }, this._itemdrag)));
+      this.trigger(evt.createEvent(e, utils.extend(
+        { type: 'itemdragend', data: this.selectedRows() }, this._itemdrag)));
     }
     this._dragging = this._selecting = false;
   },
@@ -149,61 +150,7 @@ var FriendList = view.newClass('FriendList', Base, {
   _onmouseout: function(e) {
     this._card.visible(false);
     clearTimeout(this.time_id);
-  },
-
-  onSelectionDragStart: function(e) {
-    this.selectorDiv = dom.createElement('div', {
-      style: 'position:absolute; opacity: 0.3; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=30)" ;filter:alpha(opacity=30);'
-      });
-    this.selectorDiv.style.backgroundColor = '#4ea7df';
-    this.selectorDiv.style.border = '2px solid black';
-    this.selectorDiv.style.top = e.offsetY + 'px';
-    this.selectorDiv.style.left = e.offsetX + 'px';
-    this.selectorDiv.style.width = '1px';
-    this.selectorDiv.style.height = '1px';
-    this.selectorDivStart = {
-      x: e.offsetX, y: e.offsetY};
-    this._dom.appendChild(this.selectorDiv);
-    //console.debug(this._selectionController);
-    /*
-    console.debug('selection drag start');
-    console.debug(e);
-    console.debug(e.offsetX);
-    console.debug(e.offsetY);
-    */
-  },
-
-  onSelectionDrag: function(e) {
-    // get the client rectangle... find all indexes underneath it.
-    if (e.dragOffset.x >= 0) {
-      var width = e.dragOffset.x;
-      var left = this.selectorDivStart.x;
-    } else {
-      var width = -1.0 * e.dragOffset.x;
-      var left = this.selectorDivStart.x - width;
-    }
-
-    if (e.dragOffset.y >= 0) {
-      var height = e.dragOffset.y;
-      var top = this.selectorDivStart.y;
-    } else {
-      var height = -1.0 * e.dragOffset.y;
-      var top = this.selectorDivStart.y - height;
-    }
-
-    this.selectorDiv.style.top = top + 'px';
-    this.selectorDiv.style.left = left + 'px';
-    this.selectorDiv.style.width = width + 'px';
-    this.selectorDiv.style.height = height + 'px';
-    //console.debug('selection drag: ' + width + ', ' + height);
-  },
-  onSelectionDragEnd: function(e) {
-    this._dom.removeChild(this.selectorDiv);
-    delete this.selectorDiv;
-    /*
-    console.debug('selection drag end');
-    */
-  } 
+  }
 });
 
 exports.FriendList = FriendList;
