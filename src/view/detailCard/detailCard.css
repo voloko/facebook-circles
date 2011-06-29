@@ -37,8 +37,10 @@
   height: 20px;
   width: 200px;
   font-size: 12px;
+  font-weight: bold;
   color: white;
   padding-left: 5px;
+  padding-top: 5px;
 }
 
 .card__profile {
@@ -51,24 +53,17 @@
   font-weight: bold;
 }
 
+.card_link {
+  color: #3B5998;
+}
+
 .card__name {
-  top: 15px;
+  top: 35px;
   left: 70px;
   position: absolute;
   width: 98px;
   text-align: center;
   font-size: 13px;
-  font-weight: bold;
-}
-
-.card__network {
-  top: 45px;
-  left: 70px;
-  position: absolute;
-  width: 98px;
-  text-align: center;
-  font-size: 12px;
-  opacity: 0.8;
   font-weight: bold;
 }
 

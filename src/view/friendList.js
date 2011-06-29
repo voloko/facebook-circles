@@ -148,7 +148,10 @@ var FriendList = view.newClass('FriendList', Base, {
   },
   
   _onmouseout: function(e) {
-    this._card.visible(false);
+    var index = this._indexByEvent(e);
+    if (index != this.cur_index) {
+      this._card.visible(false);
+    }
     clearTimeout(this.time_id);
   }
 });
