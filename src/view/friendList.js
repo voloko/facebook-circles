@@ -55,7 +55,8 @@ var FriendList = view.newClass('FriendList', Base, {
       this.trigger(evt.createEvent(e, { type: 'selectiondragend' }));
     }
     if (this._dragging) {
-      this.trigger(evt.createEvent(e, utils.extend({ type: 'itemdragend' }, this._itemdrag)));
+      this.trigger(evt.createEvent(e, utils.extend(
+        { type: 'itemdragend', data: this.selectedRows() }, this._itemdrag)));
     }
     this._dragging = this._selecting = false;
   },

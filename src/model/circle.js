@@ -33,9 +33,19 @@ var Circle = fun.newClass(Observable, {
     return ret;
   },
   
-  addMemberId: function(id) {
+  addMemberIds: function(newIds) {
+    var map = {};
     var ids = this.member_ids();
-    ids.push(id);
+    this.member_ids().forEach(function(id) {
+      map[id] = true;
+    });
+    newIds.forEach(function(id) {
+      if (!map[id]) {
+        map[id] = true;
+        ids.push(id);
+        FB.api('/' + this.id() + '/members/' + id, 'POST', function() {});
+      }
+    }, this);
     this.member_ids(ids);
     return this;
   },
