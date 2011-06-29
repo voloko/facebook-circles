@@ -13,10 +13,13 @@ var CircleList = view.newClass('CircleList', Base, {
   },
 
   data: fun.newProp('data', function(d) {
+    this._data = d;
     this.childViews([]);
-    this.childViews(d.map(function(item) {
+    var circles = d.map(function(item) {
       return { view: Circle, model: item };
-    }))
+    });
+    circles.unshift({ view: Circle, tmp: true });
+    this.childViews(circles);
   }),
 
   _itemUnderCursor: function(e) {

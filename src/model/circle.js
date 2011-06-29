@@ -9,7 +9,7 @@ var Circle = fun.newClass(Observable, {
   init: function(data) {
     this.id(data.id);
     this.name(data.name);
-    this.member_ids(data.members);
+    this.member_ids(data.members || []);
   },
 
   id: Observable.newProp('id'),
@@ -23,6 +23,25 @@ var Circle = fun.newClass(Observable, {
     this.count(v.length);
   }),
 
+  save: function() {
+    FB.api(
+      '/me/friendlists',
+      'post',
+      { name: this.name() },
+      fun.bind(function(result) {
+        this.id(result.id);
+        this.member_ids().forEach(function(id) {
+          this.saveMemberId(id);
+        }, this);
+      }, this));
+  },
+  
+  saveMemberId: function(id) {
+    if (this.id()) {
+      FB.api('/' + this.id() + '/members/' + id, 'POST', function() {});
+    }
+  },
+
   members: function() {
     var ret = [];
     this.member_ids().forEach(function(id) {
@@ -32,7 +51,7 @@ var Circle = fun.newClass(Observable, {
 
     return ret;
   },
-  
+
   addMemberIds: function(newIds) {
     var map = {};
     var ids = this.member_ids();
@@ -43,7 +62,7 @@ var Circle = fun.newClass(Observable, {
       if (!map[id]) {
         map[id] = true;
         ids.push(id);
-        FB.api('/' + this.id() + '/members/' + id, 'POST', function() {});
+        this.saveMemberId(id);
       }
     }, this);
     this.member_ids(ids);
