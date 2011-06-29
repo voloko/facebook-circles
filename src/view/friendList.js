@@ -15,6 +15,8 @@ var SelectionController = require("./friendList/selectionController").SelectionC
 var view  = require("../../lib/uki-core/view");
 var DetailCard = require('./detailCard').DetailCard;
 
+var SearchFriends = require('../search').SearchFriends;
+
 var DRAG_OFFSET = 5;
 
 var template = requireText('friendList/person.html');
@@ -162,7 +164,13 @@ var FriendList = view.newClass('FriendList', Base, {
       this._card.visible(false);
     }
     clearTimeout(this.time_id);
+  },
+  
+  filterFriends: function(oldData, searchText) {
+    newData = oldData.filter(SearchFriends.filterFriendsFun(searchText));
+    this.data(newData);
   }
+  
 });
 
 exports.FriendList = FriendList;

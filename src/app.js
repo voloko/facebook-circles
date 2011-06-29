@@ -8,6 +8,8 @@ var evt = require('../lib/uki-core/event');
 var Circle = require('model/circle').Circle;
 var Friend = require('model/friend').Friend;
 
+var SearchFriends = require('./search').SearchFriends;
+
 require('../lib/uki-core/gesture');
 
 var builder = new Builder([
@@ -79,10 +81,31 @@ evt.on(document.body, 'itemdragend', function(e) {
 require('../lib/uki-core/dom').createStylesheet(__requiredCss);
 
 window.startApp = function() {
+  var originalFriends;
   Friend.load(function(friends) {
+    originalFriends = friends;
     friendList.data(friends);
   });
+  
+  // friendList searcher
+  evt.on(document.getElementById('searchbox'), 'keyup', function(e) {
+    if(e.which >= 65 && e.which <= 90 || e.which == 8) {
+      // refresh search on backspace
+      var searchText = e.target.value.trim();
+      /*
+      search entire original
+      selector for affiliations
+      */
+      if(originalFriends && searchText) {
+        friendList.filterFriends(originalFriends, searchText);
+      } else if (!searchText) {
+        friendList.data(originalFriends);
+      }
+    }
+  });
+  
   Circle.load(function(circles) {
     circleList.data(circles);
   });
+  
 };
