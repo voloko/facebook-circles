@@ -62,6 +62,7 @@
   position: absolute;
   width: 100px;
   font-size: 13px;
+  padding-left: 10px;
   font-weight: bold;
 }
 
