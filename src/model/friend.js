@@ -14,7 +14,18 @@ var Friend = fun.newClass(Observable, {
 
   name: Observable.newProp('name'),
 
-  picture: Observable.newProp('picture')
+  picture: Observable.newProp('picture'),
+  
+  fetchExtraData: function(callback) {
+    if (this._extraData) {
+      callback(this._extraData);
+    } else {
+      FB.api('/' + this.id(), fun.bind(function(result) {
+        this._extraData = result;
+        callback(this._extraData);
+      }));
+    }
+  }
 
 });
 
