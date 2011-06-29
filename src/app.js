@@ -35,13 +35,13 @@ var col = builder.build([
   { view: 'DetailCard', id: 'card',
     pos: 'w:88px h:95px', visible: false },  
   { view: 'SplitPane',
-    pos: 't:0 l:0 r:0 b:0',
+    pos: 't:24px l:0 r:0 b:0px',
     handlePosition: 500,
     persistent: { key: 'friendList', storage: storage },
     init: { handleWidth: 50 },
     topChildViews: [
       { view: 'Container',
-        pos: 't:10px l:10px r:0 b:0px',
+        pos: 't:0px l:10px r:0 b:0px',
         addClass: 'friendList',
         childViews: [
           {

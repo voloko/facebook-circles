@@ -4,23 +4,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>Facebook Circles</title>
+	<title>Circle Hack</title>
 </head>
 
 <body>
   <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js"></script>
   <div style="padding: 3em; text-align: center;" id="forceLogin">
-    <p>Please login to Facebook to use Facebook Circles </p>
+    <p>Please login to Facebook to use Circle Hack</p>
     <fb:login-button width="200" perms="manage_friendlists,user_about_me,read_friendlists,user_work_history, friends_work_history"></fb:login-button>
   </div>
   <script>
-    FB.init({appId: '134462436634044', status: false, cookie: true, xfbml: true });
+    FB.init({appId: '213445922031193', status: false, cookie: true, xfbml: true });
     FB.Event.subscribe('auth.login', function(response) {
-      location.href = './index.html';
+      location.href = './';
     });
     FB.getLoginStatus(function(response) {
       if (response.perms) {
-        location.href = './index.html';
+        location.href = './';
       }
     });
   </script>
