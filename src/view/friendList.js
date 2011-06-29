@@ -134,6 +134,10 @@ var FriendList = view.newClass('FriendList', Base, {
         this._card = new DetailCard();
       }
       var card = this._card;
+      if (this.cur_index && this.cur_index != this._indexByEvent(e)) {
+        this._card.visible(false);
+      }
+      
       this.cur_index = this._indexByEvent(e);
       
       if (this._card && !this._card.visible()) {

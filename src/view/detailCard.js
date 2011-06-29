@@ -25,6 +25,12 @@ var DetailCard = fun.newClass(Container, {
     this._dom = dom.createElement('div',
       { className: 'card' },
       [this._top, this._bottom]);
+
+    this.on('mouseover', this._onmouseover);
+  },
+  
+  _onmouseover: function(e) {
+    clearTimeout(this.time_id || null);
   },
   
   fillUserInfo: function(item, pos) {    
