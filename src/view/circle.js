@@ -43,6 +43,7 @@ var Circle = view.newClass('Circle', Container, {
 
   model: fun.newProp('model', function(model) {
     this._model = model;
+    this._modelChanged = true;
     this.bindings([
       { model: model, viewProp: 'name', modelProp: 'name' },
       { model: model, viewProp: 'count', modelProp: 'count' }
@@ -57,8 +58,34 @@ var Circle = view.newClass('Circle', Container, {
     return this._name.innerHTML;
   },
 
+  _firePopup: function(diff) {
+    var rect = this.clientRect(true);
+    var popup = dom.createElement('div',
+      { className: 'circle__popup',
+        html: diff > 0 ? '+' + diff : diff,
+        style: 'left: ' + rect.left + 'px; top: ' + rect.top + 'px'
+       });
+    document.body.appendChild(popup);
+
+    setTimeout(function() {
+      dom.addClass(popup, 'circle__popup_phase1');
+      setTimeout(function() {
+        dom.addClass(popup, 'circle__popup_phase2');
+        setTimeout(function() {
+          document.body.removeChild(popup);
+        }, 1000);
+      }, 1000);
+    }, 1);
+  },
+
   count: function(v) {
     if (arguments.length) {
+      var oldCount = this.count();
+      var diff = v - this.count();
+      if (diff && !this._modelChanged) {
+        this._firePopup(diff);
+      }
+      this._modelChanged = false;
       this._number.innerHTML = dom.escapeHTML(v);
       this.childViews([]);
       this._initted = false;
