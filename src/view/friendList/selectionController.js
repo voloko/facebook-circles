@@ -110,7 +110,26 @@ var SelectionController = fun.newClass(Base, {
   _onSelectionDragEnd: function(e) {
     this._view._dom.removeChild(this._selectorDiv);
     delete this._selectorDiv;
-  } 
+  }
+  // 
+  // _updateSelection: function(e) {
+  //   var packs = this.childViews(),
+  //       from = packs[0] ? packs[0].from : -1,
+  //       to = packs.length ? packs[packs.length - 1].to :
+  //           this.data().length,
+  //       state = e.action == 'add';
+  // 
+  //   from = Math.max(from, e.from);
+  //   to = Math.min(to, e.to);
+  // 
+  //   for (var i = to; i >= from; i--) {
+  //     this._setSelected(i, state);
+  //   }
+  // },
+  // 
+  // _toggleselection: function(e) {
+  //   this._triggerSelection();
+  // }
 });
 
 exports.SelectionController = SelectionController;
