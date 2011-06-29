@@ -161,6 +161,8 @@
   margin-left: 60px;
   -webkit-transition-property: opacity, margin-top, margin-left;
   -webkit-transition-duration: 1s;
+  -moz-transition-property: opacity, margin-top, margin-left;
+  -moz-transition-duration: 1s;
   opacity: 0;
   text-align: center;
   line-height: 32px;
