@@ -50,8 +50,9 @@ var SelectionController = fun.newClass({
     this._selectorDiv.style.left = e.offsetX + 'px';
     this._selectorDiv.style.width = '1px';
     this._selectorDiv.style.height = '1px';
+    var client_rect = this._view.clientRect();
     this._selectorDivStart = {
-      x: e.offsetX, y: e.offsetY};
+      x: e.pageX - client_rect.left, y: e.pageY - client_rect.top};
     this._view._dom.appendChild(this._selectorDiv);
     this._currentlySelected = {};
   },
