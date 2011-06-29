@@ -76,18 +76,6 @@ evt.on(document.body, 'itemdragend', function(e) {
   circleList.ondrop(e);
 });
 
-evt.on(document.body, 'selectiondragstart', function(e) {
-  friendList.onSelectionDragStart(e);
-});
-
-evt.on(document.body, 'selectiondrag', function(e) {
-  friendList.onSelectionDrag(e);
-});
-
-evt.on(document.body, 'selectiondragend', function(e) {
-  friendList.onSelectionDragEnd(e);
-});
-
 require('../lib/uki-core/dom').createStylesheet(__requiredCss);
 
 window.startApp = function() {
