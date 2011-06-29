@@ -1,0 +1,373 @@
+	view/dataGrid.js	/^    itemsPerRow: function(force) {$/;"	regex	line:45
+	view/dataList.js	/^  redrawRow: function(index) {$/;"	regex	line:196
+	view/dataList.js	/^  selectedRow: function() {$/;"	regex	line:392
+	view/dataListOld/binding.js	/^  updateView: function(e) {$/;"	regex	line:18
+	view/progressBar.js	/^    _redraw: function() {$/;"	regex	line:34
+	view/select.js	/^    updateView: function(e) {$/;"	regex	line:71
+	view/sideNav.js	/^   _redraw: function() {$/;"	regex	line:69
+	view/typeahead/view.js	/^    selectedRow: function() {$/;"	regex	line:21
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.7	//
+Array	view/dataTree.js	/^        Array.prototype.splice.apply(data, insertion);$/;"	class	line:84
+Array.splice	view/dataTree.js	/^        Array.prototype.splice.apply(data, insertion);$/;"	method	line:84
+Base	view/dataListOld.js	/^    Base.prototype._setup.call(this, initArgs);$/;"	class	line:188
+Base._setup	view/dataListOld.js	/^    Base.prototype._setup.call(this, initArgs);$/;"	method	line:188
+Binding	binding.js	/^var Binding = fun.newClass(Base, {$/;"	variable	line:10
+Binding	view/dataListOld/binding.js	/^var Binding = fun.newClass(Base, {$/;"	variable	line:10
+Binding	view/select.js	/^var Binding = fun.newClass(BaseBinding, {$/;"	variable	line:70
+Button	view/button.js	/^var Button = fun.newClass(Base, Focusable, {$/;"	variable	line:21
+Checkbox	view/checkbox.js	/^var Checkbox = fun.newClass(Radio, {$/;"	variable	line:17
+Container	view/HTMLLayout.js	/^    Container.prototype.destruct.call(this);$/;"	class	line:121
+Container	view/dataList.js	/^var Container = require('uki-view-container').Container;$/;"	variable	line:20
+Container	view/dataTable.js	/^  Container.prototype.destruct.call(this);$/;"	class	line:146
+Container	view/splitPane.js	/^    Container.prototype._setup.call(this, initArgs);$/;"	class	line:45
+Container	view/tokenizer.js	/^    Container.prototype.appendChild.call(this, child);$/;"	class	line:216
+Container._setup	view/splitPane.js	/^    Container.prototype._setup.call(this, initArgs);$/;"	method	line:45
+Container.appendChild	view/tokenizer.js	/^    Container.prototype.appendChild.call(this, child);$/;"	method	line:216
+Container.childViews	view/tokenizer.js	/^        Container.prototype.childViews.call(this, []);$/;"	method	line:233
+Container.destruct	view/HTMLLayout.js	/^    Container.prototype.destruct.call(this);$/;"	method	line:121
+Container.destruct	view/dataTable.js	/^  Container.prototype.destruct.call(this);$/;"	method	line:146
+Container.destruct	view/splitPane.js	/^  Container.prototype.destruct.call(this);$/;"	method	line:106
+Container.removeChild	view/tokenizer.js	/^    Container.prototype.removeChild.call(this, child);$/;"	method	line:226
+DataGrid	view/dataGrid.js	/^var DataGrid = fun.newClass(DataListOld, {$/;"	variable	line:18
+DataList	view/dataList.js	/^var DataList = view.newClass('DataList', Container, Focusable, {$/;"	variable	line:23
+DataListOld	view/dataListOld.js	/^var DataListOld = fun.newClass(Base, Focusable, Selectable, {}),$/;"	variable	line:23
+DataListOld	view/dataTable.js	/^    DataListOld.prototype._createDom.call(this, args);$/;"	class	line:260
+DataListOld	view/dataTable.js	/^var DataListOld = require('uki-fb-view-dataListOld').DataListOld,$/;"	variable	line:248
+DataListOld	view/dataTree.js	/^        DataListOld.prototype._selectionKeypress.call(this, e);$/;"	class	line:151
+DataListOld._createDom	view/dataTable.js	/^    DataListOld.prototype._createDom.call(this, args);$/;"	method	line:260
+DataListOld._createDom	view/dataTree.js	/^    DataListOld.prototype._createDom.call(this, args);$/;"	method	line:156
+DataListOld._selectionKeypress	view/dataTree.js	/^        DataListOld.prototype._selectionKeypress.call(this, e);$/;"	method	line:151
+DataSource	view/typeahead/dataSource.js	/^var DataSource = fun.newClass(Observable, {$/;"	variable	line:14
+DataTable	view/dataTable.js	/^var DataTable = fun.newClass(Container, PersistentState, {}),$/;"	variable	line:24
+DataTableHeader	view/dataTable.js	/^var DataTableHeader = fun.newClass(Base, {}),$/;"	variable	line:157
+DataTree	view/dataTree.js	/^var DataTree = fun.newClass(DataListOld, {}),$/;"	variable	line:20
+Dialog	view/dialog.js	/^var Dialog = fun.newClass(Container, {$/;"	variable	line:22
+DialogBody	view/dialog.js	/^var DialogBody = fun.newClass(Container, {$/;"	variable	line:113
+DialogContent	view/dialog.js	/^var DialogContent = fun.newClass(Container, {$/;"	variable	line:122
+DialogFooter	view/dialog.js	/^var DialogFooter = fun.newClass(Container, {$/;"	variable	line:131
+DialogHeader	view/dialog.js	/^var DialogHeader = fun.newClass(Text, {$/;"	variable	line:103
+Editor	view/dataListOld/editor.js	/^Editor.prototype._bindingOptions = {};$/;"	class	line:101
+Editor	view/dataListOld/editor.js	/^var Editor = fun.newClass(Container, {$/;"	variable	line:18
+Editor._bindingOptions	view/dataListOld/editor.js	/^Editor.prototype._bindingOptions = {};$/;"	method	line:101
+FileInput	view/fileInput.js	/^var FileInput = fun.newClass(Base, Focusable, {$/;"	variable	line:17
+Focusable	view/dataList.js	/^var Focusable = require('uki-focusable').Focusable;$/;"	variable	line:21
+Focusable._blur	view/focusable.js	/^Focusable._blur = function() {$/;"	function	line:43
+Focusable._destruct	view/focusable.js	/^Focusable._destruct = function() {$/;"	class	line:32
+Focusable._domForEvent	view/focusable.js	/^Focusable._domForEvent = function(type) {$/;"	function	line:16
+Focusable._focus	view/focusable.js	/^Focusable._focus = function() {$/;"	function	line:37
+Focusable._initFocusEvents	view/focusable.js	/^Focusable._initFocusEvents = function() {$/;"	class	line:26
+Focusable.blur	view/focusable.js	/^Focusable.blur = function() {$/;"	class	line:54
+Focusable.focus	view/focusable.js	/^Focusable.focus = function() {$/;"	class	line:49
+Focusable.focusableDom	view/focusable.js	/^Focusable.focusableDom = function() {$/;"	function	line:12
+Focusable.hasFocus	view/focusable.js	/^Focusable.hasFocus = function() {$/;"	function	line:59
+Form	view/form.js	/^var Form = view.newClass('fb.Form', Container, {$/;"	variable	line:20
+HTMLLayout	view/HTMLLayout.js	/^var HTMLLayout = fun.newClass(Container, {}),$/;"	variable	line:38
+ImageView	view/image.js	/^var ImageView = fun.newClass(Base, {$/;"	variable	line:17
+List	view/list.js	/^var List = fun.newClass(Container, {$/;"	variable	line:21
+Menu	view/menu.js	/^var Menu = fun.newClass(Container, Focusable, {$/;"	variable	line:25
+MenuCheckboxItem	view/menu.js	/^var MenuCheckboxItem = fun.newClass(MenuItem, {$/;"	variable	line:219
+MenuItem	view/menu.js	/^var MenuItem = fun.newClass(Base, Focusable, {$/;"	variable	line:133
+MenuItemGroup	view/menu.js	/^var MenuItemGroup = fun.newClass(Container, {$/;"	variable	line:97
+MenuRadioItem	view/menu.js	/^var MenuRadioItem = fun.newClass(MenuItem, {$/;"	variable	line:194
+MenuSeparator	view/menu.js	/^var MenuSeparator = fun.newClass(Base, {$/;"	variable	line:244
+Metrics	view/dataList.js	/^var Metrics    = require('uki-fb-view-dataList-metrics').Metrics;$/;"	variable	line:14
+PLACEHOLDER_CLASSNAME	view/HTMLLayout.js	/^var PLACEHOLDER_CLASSNAME = '__layout__placeholder';$/;"	variable	line:42
+Pack	view/dataList.js	/^var Pack       = require('uki-fb-view-dataList-pack').Pack;$/;"	variable	line:16
+PillButton	view/pillButton.js	/^var PillButton = fun.newClass(Base, {$/;"	variable	line:15
+PillList	view/pillList.js	/^var PillList = fun.newClass(List, {$/;"	variable	line:13
+ProgressBar	view/progressBar.js	/^var ProgressBar = fun.newClass(Base, {$/;"	variable	line:14
+Radio	view/radio.js	/^Radio.prototype.label = Radio.prototype.text;$/;"	class	line:52
+Radio	view/radio.js	/^var Radio = fun.newClass(Base, {$/;"	variable	line:16
+Radio.label	view/radio.js	/^Radio.prototype.label = Radio.prototype.text;$/;"	method	line:52
+SearchInput	view/searchInput.js	/^var SearchInput = fun.newClass(Base, Focusable, {$/;"	variable	line:17
+Select	view/select.js	/^var Select = fun.newClass(Base, Focusable, {$/;"	variable	line:17
+SelectEditor	view/dataListOld/selectEditor.js	/^var SelectEditor = fun.newClass(Editor, {$/;"	variable	line:15
+Selectable._addSelectionEvents	view/selectable.js	/^Selectable._addSelectionEvents = function() {$/;"	class	line:120
+Selectable._initSelectable	view/selectable.js	/^Selectable._initSelectable = function() {$/;"	class	line:21
+Selectable._itemUnderCursor	view/selectable.js	/^Selectable._itemUnderCursor = function(e) {$/;"	function	line:143
+Selectable._removeFromSelection	view/selectable.js	/^Selectable._removeFromSelection = function(from, to) {$/;"	class	line:177
+Selectable._selectionBlur	view/selectable.js	/^Selectable._selectionBlur = function(e) {$/;"	function	line:270
+Selectable._selectionEdit	view/selectable.js	/^Selectable._selectionEdit = function() {};$/;"	function	line:175
+Selectable._selectionFocus	view/selectable.js	/^Selectable._selectionFocus = function(e) {$/;"	function	line:257
+Selectable._selectionKeypress	view/selectable.js	/^Selectable._selectionKeypress = function(e) {$/;"	function	line:223
+Selectable._selectionMousedown	view/selectable.js	/^Selectable._selectionMousedown = function(e) {$/;"	class	line:183
+Selectable._selectionMouseup	view/selectable.js	/^Selectable._selectionMouseup = function(e) {$/;"	class	line:150
+Selectable._setSelected	view/selectable.js	/^Selectable._setSelected = function(index, state) {$/;"	function	line:30
+Selectable._toggleSelection	view/selectable.js	/^Selectable._toggleSelection = function(p) {$/;"	class	line:101
+Selectable._triggerSelection	view/selectable.js	/^Selectable._triggerSelection = function(force) {$/;"	function	line:273
+Selectable.clearSelection	view/selectable.js	/^Selectable.clearSelection = function(skipClickIndex) {$/;"	class	line:82
+Selectable.isSelected	view/selectable.js	/^Selectable.isSelected = function(index) {$/;"	function	line:96
+Selectable.keyPressEvent	view/selectable.js	/^Selectable.keyPressEvent = function() {$/;"	function	line:114
+Selectable.moveSelectedIndex	view/selectable.js	/^Selectable.moveSelectedIndex = function(offset) {$/;"	function	line:68
+Selectable.scrollToPosition	view/selectable.js	/^Selectable.scrollToPosition = function(pos) {$/;"	function	line:34
+Selectable.selectedIndex	view/selectable.js	/^Selectable.selectedIndex = function(position) {$/;"	class	line:43
+Selectable.selectedIndexes	view/selectable.js	/^Selectable.selectedIndexes = function(indexes) {$/;"	class	line:56
+Selection	view/dataList.js	/^var Selection  = require('uki-fb-view-dataList-selection').Selection;$/;"	variable	line:15
+SelectionController	view/dataList.js	/^var SelectionController =$/;"	variable	line:17
+Selector	view/selector.js	/^var Selector = fun.newClass(Base, Focusable, {}),$/;"	variable	line:28
+SideNav	view/sideNav.js	/^var SideNav = fun.newClass(Container, {$/;"	variable	line:25
+SideNavItem	view/sideNav.js	/^var SideNavItem = fun.newClass(Base, {$/;"	variable	line:59
+SplitPane	view/splitPane.js	/^var SplitPane = fun.newClass(Container, PersistentState, {}),$/;"	variable	line:25
+TOGGLE_CLASS	view/selector.js	/^var TOGGLE_CLASS = 'openToggler';$/;"	variable	line:31
+TestView	__tests__/persistentState.js	/^var TestView = view.newClass('fb.test.TestView', Base, PersistentState, {$/;"	variable	line:15
+Text	view/text.js	/^var Text = fun.newClass(Container, {}),$/;"	variable	line:20
+TextArea	view/textArea.js	/^var TextArea = fun.newClass(TextInput, {}),$/;"	variable	line:20
+TextInput	view/textInput.js	/^var TextInput = fun.newClass(Base, Focusable, {}),$/;"	variable	line:22
+Token	view/tokenizer/token.js	/^var Token = fun.newClass(Base, {$/;"	variable	line:18
+Tokenizer	view/tokenizer.js	/^var Tokenizer = fun.newClass(Container, {}),$/;"	variable	line:24
+Typeahead	view/typeahead.js	/^var Typeahead = fun.newClass(Container, Focusable, {}),$/;"	variable	line:22
+View	view/typeahead/view.js	/^var View = fun.newClass(Base, {$/;"	variable	line:19
+allSpaces	view/typeahead/util.js	/^var allSpaces = \/[ ]+\/g,$/;"	variable	line:30
+appendOptions	view/select.js	/^function appendOptions(root, options) {$/;"	function	line:27
+basicRenderer	view/typeahead/basicRenderer.js	/^function basicRenderer(data, index) {$/;"	function	line:18
+build	view/dataList.js	/^var build = require('uki-builder').build;$/;"	variable	line:12
+clean	view/typeahead/util.js	/^function clean(str) {$/;"	function	line:58
+compactRenderer	view/typeahead/compactRenderer.js	/^function compactRenderer(data, index) {$/;"	function	line:20
+dom	persistentState.js	/^var dom   = require('uki-dom'),$/;"	variable	line:5
+dom	view/dataList.js	/^var dom   = require('uki-dom');$/;"	variable	line:10
+dom	view/typeahead/basicRenderer.js	/^var dom = require('uki-dom');$/;"	variable	line:7
+dom	view/typeahead/compactRenderer.js	/^var dom = require('uki-dom');$/;"	variable	line:7
+env	view/dataListOld.js	/^var env   = require('uki-env'),$/;"	variable	line:8
+env	view/dialog.js	/^var env   = require('uki-env'),$/;"	variable	line:7
+env	view/focusable.js	/^var env = require('uki-env'),$/;"	variable	line:6
+env	view/selectable.js	/^var env   = require('uki-env'),$/;"	variable	line:7
+escape	view/typeahead/util.js	/^function escape(str) {$/;"	function	line:63
+flatten	view/typeahead/util.js	/^function flatten(str) {$/;"	function	line:68
+fun	__tests__/persistentState.js	/^var fun  = require('uki-function'),$/;"	variable	line:7
+fun	binding.js	/^var fun = require('uki-function'),$/;"	variable	line:5
+fun	view/button.js	/^var fun   = require('uki-function'),$/;"	variable	line:8
+fun	view/checkbox.js	/^var fun = require('uki-function'),$/;"	variable	line:7
+fun	view/dataGrid.js	/^var fun   = require('uki-function'),$/;"	variable	line:7
+fun	view/dataList.js	/^var fun   = require('uki-function');$/;"	variable	line:8
+fun	view/dataListOld/binding.js	/^var fun   = require('uki-function'),$/;"	variable	line:6
+fun	view/dataListOld/editor.js	/^var fun   = require('uki-function'),$/;"	variable	line:9
+fun	view/dataListOld/selectEditor.js	/^var fun   = require('uki-function'),$/;"	variable	line:7
+fun	view/dataTable.js	/^var fun     = require('uki-function'),$/;"	variable	line:7
+fun	view/dataTree.js	/^var fun   = require('uki-function'),$/;"	variable	line:7
+fun	view/fileInput.js	/^var fun = require('uki-function'),$/;"	variable	line:6
+fun	view/form.js	/^var fun   = require('uki-function'),$/;"	variable	line:8
+fun	view/image.js	/^var fun = require('uki-function'),$/;"	variable	line:7
+fun	view/menu.js	/^var fun   = require('uki-function'),$/;"	variable	line:8
+fun	view/pillButton.js	/^var fun  = require('uki-function'),$/;"	variable	line:8
+fun	view/pillList.js	/^var fun   = require('uki-function'),$/;"	variable	line:7
+fun	view/progressBar.js	/^var fun   = require('uki-function'),$/;"	variable	line:8
+fun	view/radio.js	/^var fun   = require('uki-function'),$/;"	variable	line:7
+fun	view/searchInput.js	/^var fun  = require('uki-function'),$/;"	variable	line:8
+fun	view/select.js	/^var fun   = require('uki-function'),$/;"	variable	line:8
+fun	view/selector.js	/^var fun   = require('uki-function'),$/;"	variable	line:8
+fun	view/sideNav.js	/^var fun   = require('uki-function'),$/;"	variable	line:8
+fun	view/splitPane.js	/^var fun   = require('uki-function'),$/;"	variable	line:8
+fun	view/text.js	/^var fun  = require('uki-function'),$/;"	variable	line:8
+fun	view/textArea.js	/^var fun   = require('uki-function'),$/;"	variable	line:8
+fun	view/textInput.js	/^var fun   = require('uki-function'),$/;"	variable	line:8
+fun	view/tokenizer.js	/^var fun   = require('uki-function'),$/;"	variable	line:7
+fun	view/tokenizer/token.js	/^var fun   = require('uki-function'),$/;"	variable	line:7
+fun	view/typeahead.js	/^var fun   = require('uki-function'),$/;"	variable	line:7
+fun	view/typeahead/dataSource.js	/^var fun   = require('uki-function'),$/;"	variable	line:7
+fun	view/typeahead/view.js	/^var fun   = require('uki-function'),$/;"	variable	line:7
+hProto._createDom	view/dataTable.js	/^hProto._createDom = function() {$/;"	class	line:165
+hProto._drag	view/dataTable.js	/^hProto._drag = function(e) {$/;"	class	line:188
+hProto._dragStart	view/dataTable.js	/^hProto._dragStart = function(e) {$/;"	function	line:176
+hProto._formatColumn	view/dataTable.js	/^hProto._formatColumn = function(col) {$/;"	function	line:216
+hProto._resizeColumn	view/dataTable.js	/^hProto._resizeColumn = function(pos, width) {$/;"	class	line:198
+hProto.scrollTo	view/dataTable.js	/^hProto.scrollTo = function(offset) {$/;"	class	line:172
+indexize	view/typeahead/dataSource.js	/^function indexize(arr) {$/;"	function	line:617
+lProto._createDom	view/dataTable.js	/^lProto._createDom = function(args) {$/;"	class	line:259
+lProto._editorBlur	view/dataTable.js	/^lProto._editorBlur = function(e) {$/;"	class	line:393
+lProto._editorMove	view/dataTable.js	/^lProto._editorMove = function(e) {$/;"	function	line:411
+lProto._formatRow	view/dataTable.js	/^lProto._formatRow = function(row, pos) {$/;"	class	line:302
+lProto._itemWithinPack	view/dataTable.js	/^lProto._itemWithinPack = function(pack, packPos) {$/;"	function	line:317
+lProto._resizeColumn	view/dataTable.js	/^lProto._resizeColumn = function(pos, width) {$/;"	class	line:321
+lProto._selectionEdit	view/dataTable.js	/^lProto._selectionEdit = function(e) {$/;"	class	line:380
+lProto._setSelected	view/dataTable.js	/^lProto._setSelected = function(position, state) {$/;"	function	line:295
+lProto.editSelectedColumn	view/dataTable.js	/^lProto.editSelectedColumn = function(index) {$/;"	class	line:343
+lProto.editing	view/dataTable.js	/^lProto.editing = function() {$/;"	function	line:339
+lProto.shouldRedrawOnPropChange	view/dataTable.js	/^lProto.shouldRedrawOnPropChange = function(column) {$/;"	function	line:282
+proto	view/dataList.js	/^var proto = DataList.prototype;$/;"	variable	line:458
+proto	view/dialog.js	/^var proto = Dialog.prototype;$/;"	variable	line:90
+proto	view/sideNav.js	/^var proto = SideNavItem.prototype;$/;"	variable	line:80
+proto	view/typeahead/dataSource.js	/^var proto = DataSource.prototype;$/;"	variable	line:22
+proto._activity	view/typeahead.js	/^proto._activity = function(e) {$/;"	class	line:224
+proto._addEntries	view/typeahead/dataSource.js	/^proto._addEntries = function(entries, value, flat_value) {$/;"	function	line:315
+proto._appendChildToDom	view/tokenizer.js	/^proto._appendChildToDom = function(child) {$/;"	class	line:221
+proto._areaClick	view/tokenizer.js	/^proto._areaClick = function(e) {$/;"	function	line:144
+proto._blur	view/tokenizer.js	/^proto._blur = function(e) {$/;"	function	line:126
+proto._blur	view/typeahead.js	/^proto._blur = function(e) {$/;"	function	line:172
+proto._buildCacheResults	view/typeahead/dataSource.js	/^proto._buildCacheResults = function(tokens, cache) {$/;"	function	line:579
+proto._buildData	view/typeahead/dataSource.js	/^proto._buildData = function(uids) {$/;"	function	line:467
+proto._buildQueryResults	view/typeahead/dataSource.js	/^proto._buildQueryResults = function(value, tokens) {$/;"	function	line:513
+proto._buildUids	view/typeahead/dataSource.js	/^proto._buildUids = function(value, new_uids) {$/;"	function	line:436
+proto._buildViews	view/HTMLLayout.js	/^proto._buildViews = function(views) {$/;"	function	line:66
+proto._calcDesiredPosition	view/splitPane.js	/^proto._calcDesiredPosition = function() {$/;"	function	line:239
+proto._calcRowHeight	view/dataListOld.js	/^proto._calcRowHeight = function() {$/;"	function	line:302
+proto._checkFreeform	view/tokenizer.js	/^proto._checkFreeform = function() {$/;"	function	line:202
+proto._checkValue	view/typeahead.js	/^proto._checkValue = function() {$/;"	class	line:238
+proto._childViewsAt	view/splitPane.js	/^proto._childViewsAt = function(i, views) {$/;"	class	line:301
+proto._click	view/selector.js	/^proto._click = function(e) {$/;"	class	line:89
+proto._commitFreeform	view/tokenizer.js	/^proto._commitFreeform = function() {$/;"	function	line:186
+proto._contentToPlaceholders	view/HTMLLayout.js	/^proto._contentToPlaceholders = function(views, prefix) {$/;"	function	line:80
+proto._createDom	view/HTMLLayout.js	/^proto._createDom = function() {$/;"	class	line:62
+proto._createDom	view/dataListOld.js	/^proto._createDom = function(initArgs) {$/;"	class	line:191
+proto._createDom	view/dataTable.js	/^proto._createDom = function(initArgs) {$/;"	class	line:83
+proto._createDom	view/dataTree.js	/^proto._createDom = function(args) {$/;"	class	line:155
+proto._createDom	view/selector.js	/^proto._createDom = function() {$/;"	class	line:38
+proto._createDom	view/splitPane.js	/^proto._createDom = function() {$/;"	class	line:208
+proto._createDom	view/text.js	/^proto._createDom = function() {$/;"	class	line:25
+proto._createDom	view/textArea.js	/^proto._createDom = function() {$/;"	class	line:25
+proto._createDom	view/textInput.js	/^proto._createDom = function() {$/;"	class	line:52
+proto._createDom	view/tokenizer.js	/^proto._createDom = function() {$/;"	class	line:101
+proto._createDom	view/typeahead.js	/^proto._createDom = function(initArgs) {$/;"	class	line:117
+proto._createHandle	view/splitPane.js	/^proto._createHandle = function() {$/;"	function	line:188
+proto._createInput	view/typeahead.js	/^proto._createInput = function() {$/;"	class	line:137
+proto._createView	view/typeahead.js	/^proto._createView = function() {$/;"	class	line:133
+proto._dataForClipboard	view/dataListOld.js	/^proto._dataForClipboard = function() {$/;"	function	line:276
+proto._dirty	view/typeahead/dataSource.js	/^proto._dirty = function() {$/;"	class	line:178
+proto._docClick	view/selector.js	/^proto._docClick = function(e) {$/;"	function	line:100
+proto._draggesture	view/splitPane.js	/^proto._draggesture = function(e) {$/;"	class	line:253
+proto._draggestureend	view/splitPane.js	/^proto._draggestureend = function(e) {$/;"	class	line:257
+proto._draggesturestart	view/splitPane.js	/^proto._draggesturestart = function(e) {$/;"	class	line:248
+proto._editorBlur	view/dataListOld.js	/^proto._editorBlur = function(e) {$/;"	function	line:248
+proto._editorMove	view/dataListOld.js	/^proto._editorMove = function(e) {$/;"	function	line:266
+proto._expandTree	view/dataTree.js	/^proto._expandTree = function(tree, indent) {$/;"	function	line:56
+proto._fetch	view/typeahead/dataSource.js	/^proto._fetch = function(endpoint, data, value, flat_value) {$/;"	class	line:265
+proto._fetchHandler	view/typeahead/dataSource.js	/^proto._fetchHandler = function(entries, value, flat_value) {$/;"	class	line:299
+proto._fillCache	view/typeahead/dataSource.js	/^proto._fillCache = function(uids) {$/;"	function	line:377
+proto._filterQueryResults	view/typeahead/dataSource.js	/^proto._filterQueryResults = function(tokens, query_uids) {$/;"	function	line:529
+proto._findQueryCache	view/typeahead/dataSource.js	/^proto._findQueryCache = function(value) {$/;"	function	line:492
+proto._firstResize	view/dataListOld.js	/^proto._firstResize = function() {$/;"	class	line:289
+proto._firstResize	view/dataTable.js	/^proto._firstResize = function() {$/;"	class	line:110
+proto._focus	view/textInput.js	/^proto._focus = function() {$/;"	class	line:59
+proto._focus	view/typeahead.js	/^proto._focus = function() {$/;"	class	line:165
+proto._formatRow	view/dataListOld.js	/^proto._formatRow = function(row, pos) {$/;"	function	line:381
+proto._formatRow	view/dataTree.js	/^proto._formatRow = function(row, pos) {$/;"	function	line:160
+proto._getEntry	view/typeahead/dataSource.js	/^proto._getEntry = function(uid) {$/;"	function	line:364
+proto._getQueryCache	view/typeahead/dataSource.js	/^proto._getQueryCache = function() {$/;"	function	line:613
+proto._getQueryData	view/typeahead/dataSource.js	/^proto._getQueryData = function(value, existing) {$/;"	function	line:201
+proto._getTokens	view/typeahead/dataSource.js	/^proto._getTokens = function(obj) {$/;"	function	line:404
+proto._hasMaxTokens	view/tokenizer.js	/^proto._hasMaxTokens = function() {$/;"	function	line:207
+proto._info2value	view/tokenizer.js	/^proto._info2value = function(i) {$/;"	function	line:97
+proto._initEvents	view/tokenizer.js	/^proto._initEvents = function() {$/;"	class	line:116
+proto._initEvents	view/typeahead.js	/^proto._initEvents = function() {$/;"	class	line:149
+proto._initLayout	view/splitPane.js	/^proto._initLayout = function() {$/;"	class	line:229
+proto._isPrefixMatch	view/typeahead/dataSource.js	/^proto._isPrefixMatch = function(query_tokens, object_tokens) {$/;"	function	line:545
+proto._itemAt	view/dataListOld.js	/^proto._itemAt = function(position) {$/;"	function	line:441
+proto._itemWithinPack	view/dataListOld.js	/^proto._itemWithinPack = function(pack, packPos) {$/;"	function	line:451
+proto._keydown	view/tokenizer.js	/^proto._keydown = function(e) {$/;"	class	line:153
+proto._keydown	view/typeahead.js	/^proto._keydown = function(e) {$/;"	function	line:188
+proto._keypress	view/selector.js	/^proto._keypress = function(e) {$/;"	function	line:93
+proto._keypress	view/typeahead.js	/^proto._keypress = function() {$/;"	class	line:181
+proto._layout	view/splitPane.js	/^proto._layout = function() {$/;"	class	line:235
+proto._leftPos	view/splitPane.js	/^proto._leftPos = function() {$/;"	function	line:309
+proto._makeRequest	view/typeahead/dataSource.js	/^proto._makeRequest = function(endpoint, data, handlers) {$/;"	function	line:158
+proto._moveHandle	view/splitPane.js	/^proto._moveHandle = function() {$/;"	class	line:120
+proto._normalizeHandlePosition	view/splitPane.js	/^proto._normalizeHandlePosition = function(pos) {$/;"	function	line:109
+proto._packsToRender	view/dataListOld.js	/^proto._packsToRender = function() {$/;"	function	line:352
+proto._paste	view/tokenizer.js	/^proto._paste = function(e) {$/;"	class	line:178
+proto._performQuery	view/typeahead.js	/^proto._performQuery = function(time_waited) {$/;"	function	line:257
+proto._processEntries	view/typeahead/dataSource.js	/^proto._processEntries = function(entries, query) {$/;"	function	line:339
+proto._removePack	view/dataListOld.js	/^proto._removePack = function(packN) {$/;"	function	line:375
+proto._render	view/HTMLLayout.js	/^proto._render = function() {$/;"	class	line:100
+proto._renderPack	view/dataListOld.js	/^proto._renderPack = function(rows) {$/;"	function	line:396
+proto._resizeColumn	view/dataTable.js	/^proto._resizeColumn = function(e) {$/;"	class	line:118
+proto._respond	view/typeahead.js	/^proto._respond = function(e) {$/;"	function	line:218
+proto._respond	view/typeahead/dataSource.js	/^proto._respond = function(value, uids, is_async) {$/;"	class	line:238
+proto._restorePackSelection	view/dataListOld.js	/^proto._restorePackSelection = function(packN) {$/;"	function	line:405
+proto._rightPos	view/splitPane.js	/^proto._rightPos = function() {$/;"	function	line:316
+proto._schedulePackRender	view/dataListOld.js	/^proto._schedulePackRender = function(packN, revision) {$/;"	function	line:361
+proto._scroll	view/dataListOld.js	/^proto._scroll = function() {$/;"	class	line:319
+proto._scrollHeader	view/dataTable.js	/^proto._scrollHeader = function(e) {$/;"	class	line:122
+proto._scrollableParent	view/dataListOld.js	/^proto._scrollableParent = function() {$/;"	function	line:324
+proto._select	view/tokenizer.js	/^proto._select = function() {$/;"	function	line:135
+proto._selectionBlur	view/dataListOld.js	/^proto._selectionBlur = function(e) {$/;"	class	line:429
+proto._selectionEdit	view/dataListOld.js	/^proto._selectionEdit = function(e) {$/;"	class	line:244
+proto._selectionFocus	view/dataListOld.js	/^proto._selectionFocus = function(e) {$/;"	class	line:424
+proto._selectionKeypress	view/dataTree.js	/^proto._selectionKeypress = function(e) {$/;"	function	line:126
+proto._selectionMousedown	view/dataTree.js	/^proto._selectionMousedown = function(e) {$/;"	function	line:110
+proto._setQueryData	view/typeahead/dataSource.js	/^proto._setQueryData = function(data, overwrite) {$/;"	function	line:218
+proto._setSelected	view/dataListOld.js	/^proto._setSelected = function(position, state) {$/;"	function	line:434
+proto._setup	view/dataListOld.js	/^proto._setup = function(initArgs) {$/;"	class	line:177
+proto._setup	view/splitPane.js	/^proto._setup = function(initArgs) {$/;"	class	line:40
+proto._shouldFetchMoreResults	view/typeahead/dataSource.js	/^proto._shouldFetchMoreResults = function(results) {$/;"	function	line:187
+proto._unselect	view/typeahead.js	/^proto._unselect = function() {$/;"	function	line:231
+proto._updateHandle	view/splitPane.js	/^proto._updateHandle = function(pos) {$/;"	class	line:221
+proto._updateHeight	view/dataListOld.js	/^proto._updateHeight = function() {$/;"	class	line:315
+proto._updateInput	view/tokenizer.js	/^proto._updateInput = function(redraw) {$/;"	function	line:246
+proto._updatePack	view/dataListOld.js	/^proto._updatePack = function(packN, revision, rows) {$/;"	class	line:386
+proto._updatePlaceholder	view/tokenizer.js	/^proto._updatePlaceholder = function() {$/;"	class	line:240
+proto._updatePositionOnDrag	view/splitPane.js	/^proto._updatePositionOnDrag = function(e, stop) {$/;"	class	line:264
+proto._updateTokenarea	view/tokenizer.js	/^proto._updateTokenarea = function() {$/;"	class	line:254
+proto._value2info	view/tokenizer.js	/^proto._value2info = function(v) {$/;"	function	line:93
+proto._visChanged	view/dataListOld.js	/^proto._visChanged = function() {$/;"	function	line:455
+proto._visiblePixels	view/dataListOld.js	/^proto._visiblePixels = function() {$/;"	function	line:328
+proto._visibleRows	view/dataListOld.js	/^proto._visibleRows = function() {$/;"	function	line:343
+proto._x_leftName	view/splitPane.js	/^proto._x_leftName = function() {$/;"	function	line:176
+proto._x_type	view/splitPane.js	/^proto._x_type = function() {$/;"	function	line:180
+proto._x_width	view/splitPane.js	/^proto._x_width = function() {$/;"	function	line:167
+proto._x_widthName	view/splitPane.js	/^proto._x_widthName = function() {$/;"	function	line:172
+proto._x_xName	view/splitPane.js	/^proto._x_xName = function() {$/;"	function	line:184
+proto.appendChild	view/tokenizer.js	/^proto.appendChild = function(child) {$/;"	function	line:211
+proto.bootstrap	view/typeahead/dataSource.js	/^proto.bootstrap = function() {$/;"	class	line:91
+proto.childViews	view/HTMLLayout.js	/^proto.childViews = function() {$/;"	function	line:57
+proto.childViews	view/tokenizer.js	/^proto.childViews = function(v) {$/;"	function	line:231
+proto.clear	view/HTMLLayout.js	/^proto.clear = function(skipDestruct) {$/;"	class	line:124
+proto.close	view/dataTree.js	/^proto.close = function(index) {$/;"	function	line:93
+proto.columnWidths	view/dataTable.js	/^proto.columnWidths = function(v) {$/;"	class	line:65
+proto.columns	view/dataTable.js	/^proto.columns = function(v) {$/;"	class	line:29
+proto.data	view/dataListOld.js	/^proto.data = function(d) {$/;"	class	line:55
+proto.destruct	view/HTMLLayout.js	/^proto.destruct = function() {$/;"	class	line:119
+proto.destruct	view/dataTable.js	/^proto.destruct = function() {$/;"	function	line:144
+proto.destruct	view/splitPane.js	/^proto.destruct = function() {$/;"	function	line:104
+proto.domForEvent	view/tokenizer.js	/^proto.domForEvent = function(name) {$/;"	function	line:80
+proto.domForEvent	view/typeahead.js	/^proto.domForEvent = function(name) {$/;"	function	line:142
+proto.editSelected	view/dataListOld.js	/^proto.editSelected = function() {$/;"	class	line:212
+proto.editing	view/dataListOld.js	/^proto.editing = function() {$/;"	function	line:208
+proto.extPositions	view/splitPane.js	/^proto.extPositions = function(positions) {$/;"	class	line:128
+proto.getPersistentState	view/dataTable.js	/^proto.getPersistentState = function() {$/;"	function	line:128
+proto.getPersistentState	view/splitPane.js	/^proto.getPersistentState = function() {$/;"	function	line:94
+proto.handleWidth	view/splitPane.js	/^proto.handleWidth = function() {$/;"	function	line:155
+proto.layout	view/dataListOld.js	/^proto.layout = function() {$/;"	function	line:280
+proto.layout	view/dataTable.js	/^proto.layout = function() {$/;"	class	line:105
+proto.open	view/dataTree.js	/^proto.open = function(index) {$/;"	function	line:70
+proto.opened	view/selector.js	/^proto.opened = function(v) {$/;"	function	line:81
+proto.query	view/typeahead/dataSource.js	/^proto.query = function(value, local_only) {$/;"	class	line:115
+proto.redrawRow	view/dataListOld.js	/^proto.redrawRow = function(index) {$/;"	function	line:98
+proto.removeChild	view/tokenizer.js	/^proto.removeChild = function(child) {$/;"	function	line:225
+proto.reset	view/dataListOld.js	/^proto.reset = function() {$/;"	class	line:110
+proto.reset	view/typeahead.js	/^proto.reset = function() {$/;"	class	line:71
+proto.rowHeight	view/dataListOld.js	/^proto.rowHeight = function() {$/;"	function	line:51
+proto.scrollToPosition	view/dataListOld.js	/^proto.scrollToPosition = function(position) {$/;"	class	line:123
+proto.select	view/typeahead.js	/^proto.select = function() {$/;"	class	line:90
+proto.selectedResult	view/typeahead.js	/^proto.selectedResult = function(value) {$/;"	class	line:36
+proto.selectedRow	view/dataListOld.js	/^proto.selectedRow = function() {$/;"	function	line:80
+proto.selectedRows	view/dataListOld.js	/^proto.selectedRows = function() {$/;"	function	line:85
+proto.setPersistentState	view/dataTable.js	/^proto.setPersistentState = function(state) {$/;"	function	line:135
+proto.setPersistentState	view/splitPane.js	/^proto.setPersistentState = function(state) {$/;"	function	line:98
+proto.shouldRedrawOnPropChange	view/dataListOld.js	/^proto.shouldRedrawOnPropChange = function(key) {$/;"	function	line:204
+proto.text	view/text.js	/^proto.text = function(v) {$/;"	function	line:41
+proto.triggerSelection	view/dataListOld.js	/^proto.triggerSelection = function() {$/;"	class	line:239
+proto.value	view/textInput.js	/^proto.value = function(v) {$/;"	class	line:31
+proto.value	view/tokenizer.js	/^proto.value = function(v) {$/;"	class	line:65
+proto.value	view/typeahead.js	/^proto.value = function(v) {$/;"	class	line:78
+proto.vertical	view/splitPane.js	/^proto.vertical = function() {$/;"	function	line:159
+proto.visibleColumnIndexes	view/dataTable.js	/^proto.visibleColumnIndexes = function(v) {$/;"	class	line:39
+range	view/selectable.js	/^function range(from, to) {$/;"	function	line:128
+removeRange	view/selectable.js	/^function removeRange(array, from, to) {$/;"	function	line:136
+return	view/dataTable.js	/^    return Container.prototype._layout.call(this);$/;"	class	line:107
+return	view/dataTree.js	/^    return DataListOld.prototype._selectionMousedown.call(this, e);$/;"	class	line:123
+return	view/tokenizer.js	/^    return Container.prototype.childViews.call(this, v);$/;"	class	line:237
+return._layout	view/dataTable.js	/^    return Container.prototype._layout.call(this);$/;"	method	line:107
+return._selectionMousedown	view/dataTree.js	/^    return DataListOld.prototype._selectionMousedown.call(this, e);$/;"	method	line:123
+return.childViews	view/tokenizer.js	/^    return Container.prototype.childViews.call(this, v);$/;"	method	line:237
+separate	view/typeahead/util.js	/^function separate(str) {$/;"	function	line:79
+tokenize	view/typeahead/util.js	/^function tokenize(str) {$/;"	function	line:84
+utils	view/HTMLLayout.js	/^var utils = require('uki-utils'),$/;"	variable	line:7
+utils	view/dataList.js	/^var utils = require('uki-utils');$/;"	variable	line:9
+utils	view/list.js	/^var utils = require('uki-utils'),$/;"	variable	line:8
+view	view/dataList.js	/^var view  = require('uki-view');$/;"	variable	line:11
+wrapVisChanged	view/dataList.js	/^function wrapVisChanged(v, method) {$/;"	function	line:461
+wrapperHTML	view/selector.js	/^var wrapperHTML =$/;"	variable	line:35

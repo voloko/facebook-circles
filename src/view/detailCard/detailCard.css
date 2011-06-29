@@ -1,0 +1,56 @@
+.card {
+  -moz-transition: opacity 0.15s linear 0s;
+  background-color: #FFFFFF;
+  border: 1px solid #E3E3E3;
+  border-radius: 3px 3px 3px 3px;
+  box-shadow: 3px 3px 5px #777777;
+  color: #666666;
+  font-size: 11px;
+  max-width: 290px;
+  min-width: 200px;
+  overflow: hidden;
+  position: absolute;
+  word-wrap: break-word;
+  z-index: 1202;
+}
+
+.card__pic {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 64px;
+  height: 64px;
+}
+
+.card__top {
+  background: white;
+  width: 98px;
+  height: 98px;
+}
+
+.card__bottom {
+  background: gray;
+  height: 20px;
+  width: 98px;
+  font-size: 12px;
+  color: white;
+  margin-left: 5px;
+}
+
+.card__name {
+  top: 35px;
+  left: 70px;
+  position: absolute;
+  width: 98px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.card__text {
+  color: green;
+}
+.card_number {
+  color: #FFF;
+  opacity: 0.6;
+};

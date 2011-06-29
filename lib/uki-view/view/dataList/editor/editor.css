@@ -1,0 +1,21 @@
+/**
+*/
+
+.uki-dataList-editor {
+  background: white;
+  z-index: 200;
+}
+
+.uki-dataList-editor-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.uki-dataList-selectEditor {
+  min-width: 80px;
+}

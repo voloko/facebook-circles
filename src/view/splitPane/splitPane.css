@@ -1,0 +1,21 @@
+.fc .splitPane-handle {
+  background: #FFF;
+  color: #CCC;
+  text-align: center;
+}
+
+.splitPane-handle__bar {
+  border-top: 1px dashed #CCC;
+  position: absolute;
+  left: 0; top: 30px; width: 100%;
+  z-index: 1;
+}
+
+.splitPane-handle__label {
+  background: white url(arrow.png) no-repeat 10px 50%;
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  padding: 0 10px 0 35px;
+  line-height: 60px;
+}

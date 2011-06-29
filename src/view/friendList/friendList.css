@@ -1,0 +1,72 @@
+.friendList {
+  overflow-y: auto;
+}
+
+.friendList__dragFeedback {
+  position: absolute;
+  z-index: 1000;
+}
+
+.fc .friendList__cell {
+  font: 13px arial, sans-serif;
+  cursor: move;
+  width: 138px;
+  height: 50px;
+  margin: 10px 20px 13px 0px;
+  position: relative;
+  border: 1px solid #DDDDDD;
+  border-radius: 2px;
+  box-shadow: 0 1px 0 #AAAAAA;
+  padding: 4px;
+  vertical-align: top;
+  word-wrap: break-word;
+  line-height: normal;
+  background: -moz-linear-gradient(center top , #FFFFFF, #F4F4F4) repeat scroll 0 0 transparent; /* FF */
+}
+.fc .friendList__cell {
+  background: -webkit-linear-gradient(top, #ffffff 0%,#f4f4f4 100%); /* Chrome */
+}
+.fc .friendList__cell {
+  background: linear-gradient(top, #ffffff 0%,#f4f4f4 100%); /* W3C */
+}
+
+.fc .friendList__cell:hover {
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.friendList__cell.uki-dataGrid-cell_selected:hover {
+  box-shadow: 0 0 3px 3px #AAAAAA;
+  -moz-box-shadow: 0 0 3px 3px #AAAAAA;
+  -webkit-box-shadow: 0 0 3px 3px #AAAAAA;
+}
+
+.friendList__cell.uki-dataGrid-cell_selected {
+  background: #00a6e2;
+  border-color: #777798;
+  box-shadow: 0 0 1px #cfe3ee;
+  background: -webkit-linear-gradient(top, #00aef2 0%,#00a0d3 100%); /* Chrome */
+}
+.friendList__cell.uki-dataGrid-cell_selected {
+  background: -moz-linear-gradient(top, #00aef2 0%, #00a0d3 100%); /* FF3.6+ */
+}
+.friendList__cell.uki-dataGrid-cell_selected {
+  background: linear-gradient(top, #00aef2 0%,#00a0d3 100%); /* W3C */
+}
+
+.uki-dataList_blured .friendList__cell.uki-dataGrid-cell_selected {
+  border-color: #777798;
+  color: #FFFFFF;
+}
+
+.frientList__person {
+  position: absolute;
+  vertical-align: center;
+  width: 48px;
+  height: 48px;
+}
+
+.frientList__name {
+  margin: 4px 4px 4px 58px;
+}

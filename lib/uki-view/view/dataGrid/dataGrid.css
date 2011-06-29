@@ -1,0 +1,33 @@
+/**
+*/
+
+.uki-dataList-pack.uki-dataGrid-pack {
+  display: inline-block;
+  width: auto;
+}
+
+.uki-dataGrid-filler {
+  display: inline-block;
+  height: 1px;
+  width: 0;
+  overflow: hidden;
+}
+
+.uki-dataGrid-cell {
+  display: inline-block;
+  padding: 1px;
+  vertical-align: top;
+}
+
+.uki-dataGrid-cell_selected {
+  background-color: #5b74a8;
+  color: #FFF;
+  border: 1px solid #3B5998;
+  padding: 0;
+}
+
+.uki-dataList_blured .uki-dataGrid-cell_selected {
+  background-color: #CCC;
+  border-color: #AAA;
+  color: #000;
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Facebook Circles</title>
+</head>
+
+<body class="fc">
+  <div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/src/app.js"></script>
+  <script>
+    FB.init({appId: '134462436634044', status: false, cookie: true, xfbml: true });
+    FB.getLoginStatus(function(response) {
+      if (!response.perms) {
+        location.href = './login.html';
+      } else {
+        startApp();
+      }
+    });
+  </script>
+</body>
+</html>
