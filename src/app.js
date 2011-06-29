@@ -35,7 +35,7 @@ var storage = {
 
 var col = builder.build([
   { view: 'DetailCard', id: 'card',
-    pos: 'w:88px h:95px', visible: false },  
+    pos: 'w:88px h:95px', visible: false },
   { view: 'SplitPane',
     pos: 't:24px l:0 r:0 b:0px',
     handlePosition: 500,
