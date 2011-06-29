@@ -160,7 +160,7 @@
   margin-top: 40px;
   margin-left: 60px;
   -webkit-transition-property: opacity, margin-top, margin-left;
-  -webkit-transition-duration: 1s;
+  -webkit-transition-duration: 0.7s;
   -moz-transition-property: opacity, margin-top, margin-left;
   -moz-transition-duration: 1s;
   opacity: 0;
@@ -180,7 +180,7 @@
 }
 
 .circle__popup_phase1 {
-  margin-top: -70px;
+  margin-top: -60px;
   margin-left: 30px;
   opacity: 1;
 }

@@ -21,6 +21,7 @@ var DragController = fun.newClass({
 
   _ondragstart: function(e) {
     var index = e.index;
+    this._view.selection().addRange(index, index);
     var l = this._view.selectedIndexes().length;
     
     var feedback = this._view.domForIndex(e.index).cloneNode(true);
