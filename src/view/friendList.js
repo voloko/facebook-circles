@@ -142,7 +142,12 @@ var FriendList = view.newClass('FriendList', Base, {
       
       if (this._card && !this._card.visible()) {
         var o = this.clientRect();   
-        var pos = { t: e.pageY, l: e.pageX };
+        var l = e.pageX;
+        if (e.pageX*1 + 2*88 > o.width*1) {
+          l = e.pageX*1 - 2*88;
+        }
+        
+        var pos = { t: e.pageY, l: l };
         var obj = item.data()[this.cur_index];
         this.time_id = setTimeout(function() {
           card.fillUserInfo(obj, pos);
