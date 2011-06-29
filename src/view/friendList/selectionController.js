@@ -90,13 +90,13 @@ var SelectionController = fun.newClass(Base, {
       index = to_add[i];
       this._currentlySelected[index] = 1;
       // this._selectionController.setSelection(index, true);
-      console.log('set selection for index ' + index);
+      this._view.selection().addRange(index, index);
     }
     for (var i = 0; i < to_delete.length; i++) {
       index = to_delete[i];
       // this._selectionController.setSelection(index, false);
       delete this._currentlySelected[index];
-      console.log('remove selection for index ' + index);
+      this._view.selection().removeRange(index, index);
     }
   },
 
