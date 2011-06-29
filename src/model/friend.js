@@ -1,7 +1,6 @@
 var fun = require('../lib/uki-core/function');
 var Observable = require('../lib/uki-core/observable').Observable;
 
-
 var Friend = fun.newClass(Observable, {
 
   init: function(data) {
@@ -35,9 +34,20 @@ Friend.byId = function(id) {
   return Friend._cache && Friend._cache[id];
 };
 
+Friend.compareFriends = function(a,b) {
+  if(a.name < b.name) {
+    return -1;
+  } else if (a.name > b.name) {
+    return 1;
+  }
+  return 0;
+}
+
 Friend.load = function(callback) {
   FB.api('/me/friends?fields=id,name,picture', function(result) {
     Friend._cache = {};
+    
+    result.data.sort(Friend.compareFriends);
     
     var friends = result.data.map(function(f) {
       var friend = new Friend(f);
