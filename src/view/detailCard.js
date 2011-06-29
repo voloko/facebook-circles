@@ -3,7 +3,7 @@ requireCss('./detailCard/detailCard.css');
 var Container = require('../../lib/uki-core/view/container').Container;
 var fun = require('../../lib/uki-core/function');
 var dom = require('../../lib/uki-core/dom');
-
+var Friend = require('model/friend').Friend;
 
 var DetailCard = fun.newClass(Container, {
   _createDom: function(initArgs) {
@@ -11,15 +11,22 @@ var DetailCard = fun.newClass(Container, {
 
     this._name = dom.createElement('div', 
       { className: 'card__name', html: 'Name' });
+      
+    this._network = dom.createElement('div', 
+      { className: 'card__network', html: '' });
+
+    // this._profileLink = dom.createElement('div', 
+    //   { className: 'card__profile', html: '' });
+
     this._pic = dom.createElement('img', 
       { className: 'card__pic' });
 
     this._top = dom.createElement('div', 
       { className: 'card__top'},
-      [this._name, this._pic]);
+      [this._name, this._network, this._pic]);
     
     this._bottom = dom.createElement('div', 
-      { className: 'card__bottom', html: 'Networks'});
+      { className: 'card__bottom', html: 'Loading...'});
       
     this._dom = dom.createElement('div',
       { className: 'card' },
@@ -29,7 +36,16 @@ var DetailCard = fun.newClass(Container, {
   fillUserInfo: function(item, pos) {    
     this._name.innerHTML = item.name();
     this._pic.src = item.picture();
-    this._bottom.innerHTML = item.id();
+    this._bottom.innerHTML = '';
+    this._network.innerHTML = '';
+    
+    item.fetchExtraData(fun.bind(function(result) {
+      this._bottom.innerHTML = result.username || '';
+      this._network.innerHTML = result.work 
+        ? (result.work[0] ? result.work[0].employer.name : '') : '';
+      //this._profileLink.innerHTML = '<a href=' + result.link + '>Profile</a>';
+    }, this));
+    
     var new_pos = 't:' + pos.t + 'px l:' + pos.l + 'px';  
     this.pos(new_pos);
     this.visible(true);
@@ -37,7 +53,15 @@ var DetailCard = fun.newClass(Container, {
     clearTimeout(this.time_id);
     this.time_id = setTimeout(fun.bind(function() {
       this.visible(false);
-    }, this), 3000);
+      this.clearFields();
+    }, this), 5000);
+  },
+  
+  clearFields: function() {
+    this._name.innerHTML = '';
+    this._pic.src = '';
+    this._bottom.innerHTML = '';
+    this._network.innerHTML = '';
   }
 });
 
