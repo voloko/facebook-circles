@@ -126,7 +126,7 @@ var FriendList = view.newClass('FriendList', Base, {
       return;
     }
     
-    var item = e.targetView();
+    var item = this;
     
     if (item) {
       this._card = view.byId('card');
@@ -139,7 +139,6 @@ var FriendList = view.newClass('FriendList', Base, {
       if (this._card && !this._card.visible()) {
         var o = this.clientRect();   
         var pos = { t: e.pageY - o.top, l: e.pageX - o.left };
-      
         var obj = item.data()[this.cur_index];
         this.time_id = setTimeout(function() {
           card.fillUserInfo(obj, pos);
