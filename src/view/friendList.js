@@ -27,12 +27,11 @@ var FriendList = view.newClass('FriendList', Base, {
   },
   
   _setup: function(initArgs) {
+    initArgs.selectionController = new SelectionController();
     Base.prototype._setup.call(this, initArgs);
     
     this._dragController = 'dragController' in initArgs ?
       initArgs.dragController : new DragController();
-    this._selectionController =   new SelectionController();
-    this._selection = new Selection();
   },
   
   domForIndex: function(index) {
@@ -49,7 +48,6 @@ var FriendList = view.newClass('FriendList', Base, {
     this.on('mouseout', this._onmouseout);
     
     this._dragController.initWithView(this);
-    this._selectionController.initWithView(this);
   },
   
   _ondraggestureend: function(e) {
