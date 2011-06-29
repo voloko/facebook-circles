@@ -14,6 +14,7 @@ var SelectionController = fun.newClass(Base, {
      fun.bind(this._onSelectionDrag, this));
     this._view.on('selectiondragend', 
      fun.bind(this._onSelectionDragEnd, this));
+    Base.prototype.initWithView.call(this, view);
   },
 
   _onSelectionDragStart: function(e) {
@@ -86,9 +87,9 @@ var SelectionController = fun.newClass(Base, {
       }
     }
     for (var i = 0; i < to_add.length; i++) {
-      // this._selectionController.setSelection(index, true);
       index = to_add[i];
       this._currentlySelected[index] = 1;
+      // this._selectionController.setSelection(index, true);
       console.log('set selection for index ' + index);
     }
     for (var i = 0; i < to_delete.length; i++) {

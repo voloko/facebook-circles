@@ -1,7 +1,7 @@
 .card {
   -moz-transition: opacity 0.15s linear 0s;
   background-color: #FFFFFF;
-  border: 1px solid #E3E3E3;
+  border: 5px solid #E3E3E3;
   border-radius: 3px 3px 3px 3px;
   box-shadow: 3px 3px 5px #777777;
   color: #666666;
@@ -16,6 +16,10 @@
 
 .card__pic {
   position: absolute;
+  background: #4797cf;
+  border-radius: 5px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.3);
+  border-bottom: 2px;
   left: 5px;
   top: 5px;
   width: 64px;
@@ -31,19 +35,40 @@
 .card__bottom {
   background: gray;
   height: 20px;
-  width: 98px;
+  width: 200px;
   font-size: 12px;
   color: white;
-  margin-left: 5px;
+  padding-left: 5px;
 }
 
-.card__name {
-  top: 35px;
+.card__profile {
+  top: 10px;
   left: 70px;
   position: absolute;
   width: 98px;
   text-align: center;
   font-size: 13px;
+  font-weight: bold;
+}
+
+.card__name {
+  top: 15px;
+  left: 70px;
+  position: absolute;
+  width: 98px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.card__network {
+  top: 45px;
+  left: 70px;
+  position: absolute;
+  width: 98px;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.8;
   font-weight: bold;
 }
 
