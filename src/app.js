@@ -47,7 +47,7 @@ var col = builder.build(
           as: 'friendList',
           pos: 't:0px r:0px l:0px' },
           { view: 'DetailCard', id: 'card',
-            pos: 'w:125px h:125px', visible: false }
+            pos: 'w:88px h:95px', visible: false }
       ] }
   ],
   bottomChildViews: [
