@@ -1,11 +1,10 @@
-var Base = require('../lib/uki-view/view/dataGrid/selectionController').SelectionController;
 
 var dom = require('../../../lib/uki-core/dom');
 var fun = require("../../../lib/uki-core/function");
 var evt = require("../../../lib/uki-core/event");
 var env = require("../../../lib/uki-core/env");
 
-var SelectionController = fun.newClass(Base, {
+var SelectionController = fun.newClass({
   initWithView: function(view) {
     this._view = view;
     this._view.on('selectiondragstart', 
@@ -14,13 +13,36 @@ var SelectionController = fun.newClass(Base, {
      fun.bind(this._onSelectionDrag, this));
     this._view.on('selectiondragend', 
      fun.bind(this._onSelectionDragEnd, this));
-    Base.prototype.initWithView.call(this, view);
+
+    this._view.on({
+      'mousedown': fun.bind(this._onmousedown, this),
+    });
   },
 
+  _onmousedown: function(e) {
+    if (dom.hasClass(e.target, 'uki-dataList') || dom.hasClass(e.target, 'uki-dataList-pack')) {
+      this._view.selection().clear();
+    } else {
+      var index = this._eventToIndex(e);
+      var selection = this._view.selection();
+      selection.toggle(index);
+    } 
+  },
+
+  _eventToIndex: function(e) {
+    var o = this._view.clientRect();
+    var y = e.pageY - o.top;
+    var x = e.pageX - o.left;
+
+    return Math.min(
+      this._view.metrics().cellForPosition(x, y),
+      this._view.data().length - 1);
+  },
+  
   _onSelectionDragStart: function(e) {
     this._view.selection().clear();
     this._selectorDiv = dom.createElement('div', {
-      style: 'position:absolute; opacity: 0.3; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(opacity=30)" ;filter:alpha(opacity=30);'
+      style: 'position:absolute; opacity: 0.3;'
       });
     this._selectorDiv.style.backgroundColor = '#4ea7df';
     this._selectorDiv.style.border = '2px solid black';
@@ -53,11 +75,24 @@ var SelectionController = fun.newClass(Base, {
     return {top:top, left:left, width:width, height:height};
   },
 
-  _selectIndexesUnderRect: function(rect) {
+  _getIndexesUnderRect: function(rect) {
     var start_index = this._view.metrics().cellForPosition(rect.left, rect.top);
+    var start_dimensions = this._view.metrics().cellDimensions(start_index);
+    var offset = 20;
+    if (rect.left > start_dimensions.offset + start_dimensions.width - offset) {
+      start_index++;
+      var start_dimensions_new = this._view.metrics().cellDimensions(start_index);
+      if (start_dimensions_new.offset < start_dimensions.offset) {
+        return [];
+      }
+    }
 
     var end_index = this._view.metrics().cellForPosition(
       rect.left + rect.width, rect.top + rect.height)
+    var end_dimensions = this._view.metrics().cellDimensions(end_index);
+    if (rect.left > end_dimensions.offset + end_dimensions.width - offset) {
+      end_index++;
+    }
 
     var cells_per_row = this._view.metrics().cellsPerRow();
     var start_index_row = parseInt(start_index / cells_per_row);
@@ -74,14 +109,23 @@ var SelectionController = fun.newClass(Base, {
         selected_indexes[index] = 1;
       }
     }
+    return selected_indexes;
+  },
+
+  _selectIndexesUnderRect: function(rect) {
+    var selected_indexes = this._getIndexesUnderRect(rect);
+    var index;
+
     var to_add = [];
     var to_delete = [];
     for (index in this._currentlySelected) {
+      index *= 1;
       if (!selected_indexes[index]) {
         to_delete.push(index); 
       }
     }
     for (index in selected_indexes) {
+      index *= 1;
       if (!this._currentlySelected[index]) {
         to_add.push(index); 
       }
