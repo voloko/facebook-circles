@@ -76,40 +76,24 @@ var SelectionController = fun.newClass({
   },
 
   _getIndexesUnderRect: function(rect) {
-    var start_index = this._view.metrics().cellForPosition(rect.left, rect.top);
-    var start_dimensions = this._view.metrics().cellDimensions(start_index);
-    var offset = 20;
-    if (rect.left > start_dimensions.offset + start_dimensions.width - offset) {
-      start_index++;
-      var start_dimensions_new = this._view.metrics().cellDimensions(start_index);
-      if (start_dimensions_new.offset < start_dimensions.offset) {
-        return [];
+    var metrics = this._view.metrics();
+    var width = metrics._cellWidth;
+    var height = metrics._cellHeight;
+    var cellsPerRow = metrics.cellsPerRow();
+    var x1 = ((rect.left + 25) / width) << 0;
+    var y1 = ((rect.top + 20) / height) << 0;
+    var x2 = Math.ceil((rect.left + rect.width) / width);
+    var y2 = Math.ceil((rect.top + rect.height) / height);
+    x1 = Math.min(x1, cellsPerRow);
+    x2 = Math.min(x2, cellsPerRow);
+    
+    var indexes = [];
+    for (var row = y1; row < y2; row++) {
+      for (var cell = x1; cell < x2; cell++) {
+        indexes[row*cellsPerRow + cell] = true;
       }
     }
-
-    var end_index = this._view.metrics().cellForPosition(
-      rect.left + rect.width, rect.top + rect.height)
-    var end_dimensions = this._view.metrics().cellDimensions(end_index);
-    if (rect.left > end_dimensions.offset + end_dimensions.width - offset) {
-      end_index++;
-    }
-
-    var cells_per_row = this._view.metrics().cellsPerRow();
-    var start_index_row = parseInt(start_index / cells_per_row);
-    var start_index_col = start_index - cells_per_row * start_index_row;
-    var end_index_row = parseInt(end_index / cells_per_row);
-    var end_index_col = end_index - cells_per_row * end_index_row;
-    var start_pos = {row:start_index_row, col:start_index_col};
-    var end_pos = {row:end_index_row, col:end_index_col};
-    var selected_indexes = {};
-    var index;
-    for (var col = start_pos.col; col <= end_pos.col; col++) {
-      for (var row = start_pos.row; row <= end_pos.row; row++) {
-        index = row * cells_per_row + col;
-        selected_indexes[index] = 1;
-      }
-    }
-    return selected_indexes;
+    return indexes;
   },
 
   _selectIndexesUnderRect: function(rect) {
@@ -118,7 +102,7 @@ var SelectionController = fun.newClass({
 
     var to_add = [];
     var to_delete = [];
-    for (index in this._currentlySelected) {
+    for (var index in this._currentlySelected) {
       index *= 1;
       if (!selected_indexes[index]) {
         to_delete.push(index); 
