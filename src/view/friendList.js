@@ -138,7 +138,7 @@ var FriendList = view.newClass('FriendList', Base, {
       
       if (this._card && !this._card.visible()) {
         var o = this.clientRect();   
-        var pos = { t: e.pageY - o.top, l: e.pageX - o.left };
+        var pos = { t: e.pageY, l: e.pageX };
         var obj = item.data()[this.cur_index];
         this.time_id = setTimeout(function() {
           card.fillUserInfo(obj, pos);
