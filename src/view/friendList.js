@@ -8,7 +8,7 @@ var view = require('../../lib/uki-core/view');
 var evt = require('../../lib/uki-core/event');
 var Mustache = require('../../lib/uki-core/mustache').Mustache;
 
-var Selection  = require("../../lib/uki-fb/view/dataList/selection").Selection;
+var Selection  = require("../../lib/uki-view/view/dataList/selection").Selection;
 
 var DragController = require('./friendList/dragController').DragController;
 var SelectionController = require("./friendList/selectionController").SelectionController;
