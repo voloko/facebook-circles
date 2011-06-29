@@ -18,8 +18,8 @@ var CircleFriend = view.newClass('CircleFriend', Img, {
     this._index = v;
     var a = 2*Math.PI/FRIENDS_PER_CIRCLE*v;
     var R = 67;
-    var x = -Math.sin(a)*R;
-    var y = Math.cos(a)*R;
+    var x = Math.sin(a)*R;
+    var y = -Math.cos(a)*R;
     this.dom().style.marginLeft = x - 15 + 'px';
     this.dom().style.marginTop = y - 15 + 'px';
   })
