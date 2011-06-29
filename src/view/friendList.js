@@ -86,8 +86,14 @@ var FriendList = view.newClass('FriendList', Base, {
       this._dragging = true;
       this.trigger(evt.createEvent(e, { type: 'selectiondragstart' }));
     } else {
-      var index = this._indexByEvent(e);
-        
+      var o = this.clientRect();
+      var y = e.pageY - o.top;
+      var x = e.pageX - o.left;
+
+      var index = Math.min(
+        this.metrics().cellForPosition(x, y),
+        this.data().length - 1);
+
       var d = this.metrics().cellDimensions(index);
         
       this._itemdrag = {
@@ -141,21 +147,8 @@ var FriendList = view.newClass('FriendList', Base, {
   },
   
   _onmouseout: function(e) {
-    var index = this._indexByEvent(e);
-    
-    if (index != this.cur_index) {
-      this._card.visible(false);
-      clearTimeout(this.time_id);
-    }
-  },
-  
-  _onmouseout: function(e) {
-    var index = this._indexByEvent(e);
-    
-    if (index != this.cur_index) {
-      this._card.visible(false);
-      clearTimeout(this.time_id);
-    }
+    this._card.visible(false);
+    clearTimeout(this.time_id);
   },
 
   onSelectionDragStart: function(e) {
