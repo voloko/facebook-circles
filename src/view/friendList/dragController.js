@@ -21,8 +21,16 @@ var DragController = fun.newClass({
 
   _ondragstart: function(e) {
     var index = e.index;
+    var l = this._view.selectedIndexes().length;
+    
     var feedback = this._view.domForIndex(e.index).cloneNode(true);
     dom.addClass(feedback, 'friendList__dragFeedback');
+    if (l > 1) {
+      feedback.appendChild(dom.createElement(
+        'div', { 
+          html: '<i class="friendList__dragFeedback__clip"></i><strong class="friendList__dragFeedback__number">' + l + ' friends</strong>', 
+          className: 'friendList__dragFeedback__count' }));
+    }
     this.feedback(feedback);
     
     feedback.style.marginLeft = e.offset.x + 'px';
