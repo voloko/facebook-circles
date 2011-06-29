@@ -31,36 +31,36 @@ var storage = {
   }
 };
 
-var col = builder.build(
-{ view: 'SplitPane',
-  pos: 't:0 l:0 r:0 b:0',
-  handlePosition: 500,
-  persistent: { key: 'friendList', storage: storage },
-  init: { handleWidth: 50 },
-  topChildViews: [
-    { view: 'Container',
-      pos: 't:10px l:10px r:0 b:0px',
-      addClass: 'friendList',
-      childViews: [
-        {
-          view: 'FriendList',
-          as: 'friendList',
-          pos: 't:0px r:0px l:5px' },
-          { view: 'DetailCard', id: 'card',
-            pos: 'w:88px h:95px', visible: false }
-      ] }
-  ],
-  bottomChildViews: [
-    { view: 'Container',
-      addClass: 'circleList__container',
-      pos: 't:0 b:0 l:0 r:0',
-      childViews: [
-        { view: 'CircleList', as: 'circleList',
-          pos: 't:0 l:25px r:25px',
-          childViews: [] }
-      ] }
-  ] }
-).attach();
+var col = builder.build([
+  { view: 'DetailCard', id: 'card',
+    pos: 'w:88px h:95px', visible: false },  
+  { view: 'SplitPane',
+    pos: 't:0 l:0 r:0 b:0',
+    handlePosition: 500,
+    persistent: { key: 'friendList', storage: storage },
+    init: { handleWidth: 50 },
+    topChildViews: [
+      { view: 'Container',
+        pos: 't:10px l:10px r:0 b:0px',
+        addClass: 'friendList',
+        childViews: [
+          {
+            view: 'FriendList',
+            as: 'friendList',
+            pos: 't:0px r:0px l:5px' }
+        ] }
+    ],
+    bottomChildViews: [
+      { view: 'Container',
+        addClass: 'circleList__container',
+        pos: 't:0 b:0 l:0 r:0',
+        childViews: [
+          { view: 'CircleList', as: 'circleList',
+            pos: 't:0 l:25px r:25px',
+            childViews: [] }
+        ] }
+    ] }
+  ]).attach();
 
 var circleList = col.view('circleList');
 var friendList = col.view('friendList');
