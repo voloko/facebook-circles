@@ -75,7 +75,9 @@ evt.on(document.body, 'itemdrag', function(e) {
   circleList.ondragover(e);
 });
 evt.on(document.body, 'itemdragend', function(e) {
-  circleList.ondrop(e);
+  if (circleList.ondrop(e)) {
+    friendList.selection().clear();
+  };
 });
 
 require('../lib/uki-core/dom').createStylesheet(__requiredCss);

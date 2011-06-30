@@ -71,7 +71,9 @@ var CircleList = view.newClass('CircleList', Base, {
     if (this._overIndex !== undefined) {
       var ids = utils.pluck(e.data, 'id');
       this.childViews()[this._overIndex].model().addMemberIds(ids);
+      return true;
     }
+    return false;
   }
 });
 
