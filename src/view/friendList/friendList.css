@@ -51,7 +51,7 @@
   position: relative;
   border: 1px solid #DDDDDD;
   border-radius: 2px;
-  box-shadow: 0 1px 0 #AAAAAA;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
   padding: 4px;
   vertical-align: top;
   word-wrap: break-word;
@@ -80,7 +80,6 @@
 .friendList__cell.uki-dataGrid-cell_selected {
   background: #00a6e2;
   border-color: #777798;
-  box-shadow: 0 0 1px #cfe3ee;
   background: -webkit-linear-gradient(top, #00aef2 0%,#00a0d3 100%); /* Chrome */
 }
 .friendList__cell.uki-dataGrid-cell_selected {
