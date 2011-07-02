@@ -42,12 +42,6 @@ var Circle = fun.newClass(Observable, {
     }
   },
 
-  saveDeleteMemberId: function(id) {
-    if (this.id()) {
-      FB.api('/' + this.id() + '/members/' + id, 'DELETE', function() {});
-    }
-  },
-
   members: function() {
     var ret = [];
     this.member_ids().forEach(function(id) {
@@ -56,15 +50,6 @@ var Circle = fun.newClass(Observable, {
     });
 
     return ret;
-  },
-
-  removeMemberId: function(id) {
-    var index = this.member_ids().indexOf(id);
-    var old_member_ids = this.member_ids();
-    old_member_ids.splice(index, 1);
-    this.member_ids(old_member_ids);
-    this.saveDeleteMemberId(id);
-    return this;
   },
 
   addMemberIds: function(newIds) {
