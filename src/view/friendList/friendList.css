@@ -26,11 +26,11 @@
 .friendList__dragFeedback__clip {
   display: block;
   background: url(clip.png);
-  width: 28px;
-  height: 54px;
+  width: 32px;
+  height: 58px;
   position: absolute;
   left: 50px;
-  top: -35px;
+  top: -38px;
   z-index: 11;
 }
 
