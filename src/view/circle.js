@@ -65,9 +65,9 @@ var Circle = view.newClass('Circle', Container, {
 
   _firePopup: function(diff) {
     var rect = this.clientRect(true);
-    var class_name = (diff >= 0 ? 'circle__popup_green' : 'circle__popup_red');
+    var color_class = (diff >= 0 ? 'circle__popup_green' : 'circle__popup_red');
     var popup = dom.createElement('div',
-      { className: class_name,
+      { className: 'circle__popup ' + color_class,
         html: diff > 0 ? '+' + diff : diff,
         style: 'left: ' + rect.left + 'px; top: ' + rect.top + 'px'
        });
