@@ -34,7 +34,7 @@ var CircleList = view.newClass('CircleList', Base, {
   _ondraggesturestart: function(e) {
     var target = e.target;
     var circle_index = this._itemUnderCursor(e);
-    if (!circle_index) { return; }
+    if (circle_index === null) { return; }
     var fbid = e.target.getAttribute('fbid');
     if (!fbid) { return;}
 
