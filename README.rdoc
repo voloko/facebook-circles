@@ -1,0 +1,3 @@
+Install {node and npm}[https://github.com/joyent/node/wiki/Installation]
+  npm install ukijs
+  uki run
