@@ -5,11 +5,68 @@ var view = require('../../lib/uki-core/view');
 var utils = require('../../lib/uki-core/utils');
 var fun = require('../../lib/uki-core/function');
 var Circle = require('./circle').Circle;
+var dom = require('../../lib/uki-core/dom');
+
+// var DragController = require('./circleList/dragController').DragController;
 
 var CircleList = view.newClass('CircleList', Base, {
   _createDom: function(initArgs) {
     Base.prototype._createDom.call(this, initArgs);
     this.horizontal(true).addClass('circleList').spacing('none');
+    this.on('draggesture', this._ondraggesture);
+    this.on('draggesturestart', this._ondraggesturestart);
+    this.on('draggestureend', this._ondraggestureend);
+  },
+
+  friendCircleFeedback: fun.newProp('feedback'),
+
+  _repositionCircleFriendForDrag: function(e) {
+    var top = e.pageY;
+    var left = e.pageX;
+    this.friendCircleFeedback().style.left = left + 'px';
+    this.friendCircleFeedback().style.top = top+ 'px';
+  },
+
+  _ondraggesture: function(e) {
+    if (this._dragging) {
+      this._repositionCircleFriendForDrag(e);
+    }
+  },
+
+  _ondraggesturestart: function(e) {
+    var target = e.target;
+    var circle_index = this._itemUnderCursor(e);
+    if (circle_index === null) { return; }
+    var fbid = e.targetView().fbid && e.targetView().fbid();
+    if (!fbid) { return;}
+
+    this._itemDrag = {
+      circleIndex: circle_index,
+      fbid: fbid}; 
+    this._dragging = true;
+
+    var feedback = target.cloneNode(true);
+    dom.addClass(feedback, 'circleList__dragFeedback');
+    document.body.appendChild(feedback);
+    this.friendCircleFeedback(feedback);
+    this.friendCircleFeedback().style.position = 'absolute';
+    this.friendCircleFeedback().style.zIndex = '1000';
+    this.friendCircleFeedback().style.margin = '0';
+    this.friendCircleFeedback().style.marginLeft = '-15px';
+    this.friendCircleFeedback().style.marginTop = '-15px';
+    this.friendCircleFeedback().style.opacity = 100;
+    this._repositionCircleFriendForDrag(e);
+  },
+
+  _ondraggestureend: function(e) {
+    if (this._dragging) {
+      document.body.removeChild(this.friendCircleFeedback());
+      this.friendCircleFeedback(null);
+      if (this._itemDrag && this._itemDrag.fbid) {
+        this.childViews()[this._itemDrag.circleIndex].model().removeMemberId(this._itemDrag.fbid);
+      }
+      this._dragging = false;
+    }
   },
 
   data: fun.newProp('data', function(d) {

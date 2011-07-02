@@ -23,7 +23,9 @@ var CircleFriend = view.newClass('CircleFriend', Img, {
     var y = -Math.cos(a)*R;
     this.dom().style.marginLeft = x - 15 + 'px';
     this.dom().style.marginTop = y - 15 + 'px';
-  })
+  }),
+
+  fbid: fun.newProp('fbid')
 });
 
 var Circle = view.newClass('Circle', Container, {
@@ -61,12 +63,13 @@ var Circle = view.newClass('Circle', Container, {
 
   _firePopup: function(diff) {
     var rect = this.clientRect(true);
+    var color_class = (diff >= 0 ? 'circle__popup_green' : 'circle__popup_red');
     var popup = dom.createElement('div',
-      { className: 'circle__popup',
+      { className: 'circle__popup ' + color_class,
         html: diff > 0 ? '+' + diff : diff,
         style: 'left: ' + rect.left + 'px; top: ' + rect.top + 'px'
        });
-    document.body.appendChild(popup);
+    document.body.appendChild(popup); 
 
     setTimeout(function() {
       dom.addClass(popup, 'circle__popup_phase1');
@@ -115,8 +118,9 @@ var Circle = view.newClass('Circle', Container, {
     if (this.model() && this.model().membersLoaded()) {
       this._initted = true;
       var members = this.model().members().slice(0, FRIENDS_PER_CIRCLE);
+      var child_views = [];
       this.childViews(members.map(function(m, i) {
-        return { view: CircleFriend, src: m.picture(), index: i };
+        return { view: CircleFriend, src: m.picture(), fbid: m.id(), index: i };
       }));
     }
   },
