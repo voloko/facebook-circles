@@ -49,8 +49,9 @@ var CircleList = view.newClass('CircleList', Base, {
     dom.addClass(feedback, 'circleList__dragFeedback');
     document.body.appendChild(feedback);
     this.friendCircleFeedback(feedback);
-    var left = -1 * e.offsetX;
-    var top = -1 * e.offsetY;
+    // seems like ff defaults to layers.
+    var left = -1 * parseInt(e.offsetX || e.layerX);
+    var top = -1 * parseInt(e.offsetY || e.layerY);
     this.friendCircleFeedback().style.marginLeft = left + 'px';
     this.friendCircleFeedback().style.marginTop = top + 'px';
     // why is this necessary?  it's in the css.
