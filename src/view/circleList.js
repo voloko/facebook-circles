@@ -28,14 +28,16 @@ var CircleList = view.newClass('CircleList', Base, {
   },
 
   _ondraggesture: function(e) {
-    this._repositionCircleFriendForDrag(e);
+    if (this._dragging) {
+      this._repositionCircleFriendForDrag(e);
+    }
   },
 
   _ondraggesturestart: function(e) {
     var target = e.target;
     var circle_index = this._itemUnderCursor(e);
     if (circle_index === null) { return; }
-    var fbid = e.target.getAttribute('fbid');
+    var fbid = e.targetView().fbid && e.targetView().fbid();
     if (!fbid) { return;}
 
     this._itemDrag = {
@@ -57,10 +59,13 @@ var CircleList = view.newClass('CircleList', Base, {
   },
 
   _ondraggestureend: function(e) {
-    document.body.removeChild(this.friendCircleFeedback());
-    this.friendCircleFeedback(null);
-    if (this._itemDrag && this._itemDrag.fbid) {
-      this.childViews()[this._itemDrag.circleIndex].model().removeMemberId(this._itemDrag.fbid);
+    if (this._dragging) {
+      document.body.removeChild(this.friendCircleFeedback());
+      this.friendCircleFeedback(null);
+      if (this._itemDrag && this._itemDrag.fbid) {
+        this.childViews()[this._itemDrag.circleIndex].model().removeMemberId(this._itemDrag.fbid);
+      }
+      this._dragging = false;
     }
   },
 

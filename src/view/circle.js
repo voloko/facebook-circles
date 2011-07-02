@@ -25,9 +25,7 @@ var CircleFriend = view.newClass('CircleFriend', Img, {
     this.dom().style.marginTop = y - 15 + 'px';
   }),
 
-  fbid: fun.newProp('fbid', function(v) {
-    this.dom().setAttribute('fbid', v);
-  }),
+  fbid: fun.newProp('fbid')
 });
 
 var Circle = view.newClass('Circle', Container, {
