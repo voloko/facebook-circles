@@ -1,3 +1,10 @@
 .circleList__container {
   overflow-y: auto;
 }
+
+.circleList__dragFeedback {
+  position: absolute;
+  z-index: 1000;
+  opacity: 1;
+  margin: 0;
+}

@@ -2,11 +2,6 @@
   overflow-y: auto;
 }
 
-.circleList__dragFeedback {
-  position: absolute;
-  z-index: 1000;
-}
-
 .friendList__dragFeedback {
   position: absolute;
   z-index: 1000;

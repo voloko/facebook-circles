@@ -49,11 +49,11 @@ var CircleList = view.newClass('CircleList', Base, {
     dom.addClass(feedback, 'circleList__dragFeedback');
     document.body.appendChild(feedback);
     this.friendCircleFeedback(feedback);
-    this.friendCircleFeedback().style.position = 'absolute';
-    this.friendCircleFeedback().style.zIndex = '1000';
-    this.friendCircleFeedback().style.margin = '0';
-    this.friendCircleFeedback().style.marginLeft = '-15px';
-    this.friendCircleFeedback().style.marginTop = '-15px';
+    var left = -1 * e.offsetX;
+    var top = -1 * e.offsetY;
+    this.friendCircleFeedback().style.marginLeft = left + 'px';
+    this.friendCircleFeedback().style.marginTop = top + 'px';
+    // why is this necessary?  it's in the css.
     this.friendCircleFeedback().style.opacity = 100;
     this._repositionCircleFriendForDrag(e);
   },
@@ -63,7 +63,13 @@ var CircleList = view.newClass('CircleList', Base, {
       document.body.removeChild(this.friendCircleFeedback());
       this.friendCircleFeedback(null);
       if (this._itemDrag && this._itemDrag.fbid) {
-        this.childViews()[this._itemDrag.circleIndex].model().removeMemberId(this._itemDrag.fbid);
+        if (this._itemUnderCursor(e) != this._itemDrag.circleIndex) {
+          this.childViews()[this._itemDrag.circleIndex].model().removeMemberId(this._itemDrag.fbid);
+          if (this._itemUnderCursor(e)) {
+            this.childViews()[this._itemUnderCursor(e)].model().addMemberIds([this._itemDrag.fbid]);
+          }
+        } 
+
       }
       this._dragging = false;
     }
