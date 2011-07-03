@@ -25,7 +25,7 @@ var CircleFriend = view.newClass('CircleFriend', Img, {
     this.dom().style.marginTop = y - 15 + 'px';
   }),
 
-  fbid: fun.newProp('fbid')
+  memberId: fun.newProp('memberId')
 });
 
 var Circle = view.newClass('Circle', Container, {
@@ -120,7 +120,8 @@ var Circle = view.newClass('Circle', Container, {
       var members = this.model().members().slice(0, FRIENDS_PER_CIRCLE);
       var child_views = [];
       this.childViews(members.map(function(m, i) {
-        return { view: CircleFriend, src: m.picture(), fbid: m.id(), index: i };
+        return { view: CircleFriend, 
+          src: m.picture(), memberId: m.id(), index: i};
       }));
     }
   },

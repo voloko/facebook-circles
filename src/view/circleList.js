@@ -36,22 +36,33 @@ var CircleList = view.newClass('CircleList', Base, {
   _ondraggesturestart: function(e) {
     var target = e.target;
     var circle_index = this._itemUnderCursor(e);
+
     if (circle_index === null) { return; }
-    var fbid = e.targetView().fbid && e.targetView().fbid();
-    if (!fbid) { return;}
+    if (!e.targetView().memberId || !e.targetView().memberId()) {
+      return;
+    }
 
     this._itemDrag = {
       circleIndex: circle_index,
-      fbid: fbid}; 
+      view: e.targetView()};
     this._dragging = true;
 
+    // the DOM element showing the circle the user is dragging.
     var feedback = target.cloneNode(true);
-    dom.addClass(feedback, 'circleList__dragFeedback');
+
+    // ... add a css class
+    dom.addClass(feedback, 'circleList__dragFeedback brian_blah');
+
+    // append it to the dom
     document.body.appendChild(feedback);
+
+    // store it.
     this.friendCircleFeedback(feedback);
-    // seems like ff defaults to layers.
-    var left = -1 * parseInt(e.offsetX || e.layerX);
-    var top = -1 * parseInt(e.offsetY || e.layerY);
+
+    // set its position
+    var rect = e.targetView().clientRect(true);
+    var left = rect.left - e.pageX;
+    var top = rect.top - e.pageY;
     this.friendCircleFeedback().style.marginLeft = left + 'px';
     this.friendCircleFeedback().style.marginTop = top + 'px';
     // why is this necessary?  it's in the css.
@@ -63,11 +74,19 @@ var CircleList = view.newClass('CircleList', Base, {
     if (this._dragging) {
       document.body.removeChild(this.friendCircleFeedback());
       this.friendCircleFeedback(null);
-      if (this._itemDrag && this._itemDrag.fbid) {
-        if (this._itemUnderCursor(e) != this._itemDrag.circleIndex) {
-          this.childViews()[this._itemDrag.circleIndex].model().removeMemberId(this._itemDrag.fbid);
+      if (this._itemDrag && 
+          this._itemDrag.view && 
+          this._itemDrag.view.memberId()) {
+        var from_circle_index = this._itemDrag.circleIndex;
+        var member_id = this._itemDrag.view.memberId();
+        if (this._itemUnderCursor(e) != from_circle_index) {
+          // remove the member_id from the "from_circle"
+          this.childViews()[from_circle_index].model().removeMemberId(member_id);
           if (this._itemUnderCursor(e)) {
-            this.childViews()[this._itemUnderCursor(e)].model().addMemberIds([this._itemDrag.fbid]);
+            // add the member_id to the "to_circle" 
+            var to_circle_index = this._itemUnderCursor(e);
+            var to_circle = this.childViews()[to_circle_index];
+            to_circle.model().addMemberIds([member_id]);
           }
         } 
 
