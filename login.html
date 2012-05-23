@@ -19,7 +19,7 @@
       location.href = './';
     });
     FB.getLoginStatus(function(response) {
-      if (response.perms) {
+      if (response.status === 'connected')
         location.href = './';
       }
     });
