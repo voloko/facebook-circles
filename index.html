@@ -13,7 +13,7 @@
   <script>
     FB.init({appId: '134462436634044', status: false, cookie: true, xfbml: true });
     FB.getLoginStatus(function(response) {
-      if (!response.perms) {
+      if (response.status !== 'connected')
         location.href = './login.html';
       } else {
         startApp();
