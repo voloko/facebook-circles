@@ -7,6 +7,7 @@ var evt = require('../lib/uki-core/event');
 
 var Circle = require('model/circle').Circle;
 var Friend = require('model/friend').Friend;
+var Affiliation = require('model/affiliation').Affiliation;
 
 var SearchFriends = require('./search').SearchFriends;
 
@@ -84,30 +85,63 @@ require('../lib/uki-core/dom').createStylesheet(__requiredCss);
 
 window.startApp = function() {
   var originalFriends;
+  var searchText = "";
+  var selectedAffiliationId = 0;
   Friend.load(function(friends) {
     originalFriends = friends;
     friendList.data(friends);
   });
-  
+
   // friendList searcher
   evt.on(document.getElementById('searchbox'), 'keyup', function(e) {
     if(e.which >= 65 && e.which <= 90 || e.which == 8) {
       // refresh search on backspace
-      var searchText = e.target.value.trim();
+      searchText = e.target.value.trim();
       /*
       search entire original
       selector for affiliations
       */
-      if(originalFriends && searchText) {
-        friendList.filterFriends(originalFriends, searchText);
+      var aff = Affiliation.byId(selectedAffiliationId);
+      if ((selectedAffiliationId == 0) || (!aff)) {
+        searchList = originalFriends;
+      } else {
+        searchList = aff.members();
+      }
+
+      if(searchList && searchText) {
+        friendList.filterFriends(searchList, searchText);
       } else if (!searchText) {
-        friendList.data(originalFriends);
+        friendList.data(searchList);
       }
     }
   });
-  
+
   Circle.load(function(circles) {
     circleList.data(circles);
   });
-  
+
+  Affiliation.load(function(affiliations) {
+    affiliations.forEach(function(aff) {
+      var select = document.getElementById("affiliation");
+      select.options[select.options.length] = new Option(aff.name() + " (" + aff.count() + ")", aff.nid());
+  	});
+  });
+
+  var select = document.getElementById("affiliation");
+  select.onchange = function(e) {
+    selectedAffiliationId = e.target.options[e.target.selectedIndex].value;
+
+    var aff = Affiliation.byId(selectedAffiliationId);
+    if ((selectedAffiliationId == 0) || (!aff)) {
+      searchList = originalFriends;
+    } else {
+      searchList = aff.members();
+    }
+
+    if(searchList && searchText) {
+      friendList.filterFriends(searchList, searchText);
+    } else if (!searchText) {
+      friendList.data(searchList);
+    }
+  };
 };
